@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="789c3312aaf94d7eb4f5af8559579799" Name="Diagram1">
+        <EntityTypeShape EntityType="BD_DONJUANModel.ASISTENCIA" Width="1.5" PointX="6" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.CATEGORIA" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.CLIENTE" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.COMPRA" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.EMPLEADO" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.FACTURACION" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.INVENTARIO" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.NOMINA" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.PEDIDO" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.PEDIDO_RECIBIDO" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.PEDIDO_RECIBIDO_PRODCUTO" Width="1.5" PointX="7.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.PRODUCTO" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.PROVEEDOR" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.PUESTO" Width="1.5" PointX="1.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.STOCK" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.VENTA" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_DONJUANModel.VENTA_PRODUCTO" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__ASISTENCI__EMPLE__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PRODUCTO__CATEGO__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__COMPRA__PROVEEDO__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PRODUCTO___COMPR__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__EMPLEADO__PUESTO__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__VENTA__EMPLEADO___4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__FACTURACI__VENTA__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__INVENTARI__PRODU__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PRODUCTO___PEDID__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PRODUCTO___PRODU__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PRODUCTO__PROVEE__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__STOCK__PRODUCTO___5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__VENTA_PRO__PRODU__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__PRODUCTO___PROVE__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_DONJUANModel.FK__VENTA_PRO__VENTA__534D60F1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

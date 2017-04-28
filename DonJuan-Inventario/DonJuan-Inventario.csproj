@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{305BEE3C-C718-461C-B5A1-40077B044B87}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DonJuan_Inventario</RootNamespace>
+    <AssemblyName>DonJuan-Inventario</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASISTENCIA.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CATEGORIA.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CLIENTE.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMPRA.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQLC.cs" />
+    <Compile Include="ConsultarCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarCompras.Designer.cs">
+      <DependentUpon>ConsultarCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarInventario.Designer.cs">
+      <DependentUpon>ConsultarInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarPedidos.Designer.cs">
+      <DependentUpon>ConsultarPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DonJuanDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonJuanDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonJuanDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DonJuanDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonJuanDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLEADO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FACTURACION.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fmrCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmrCategoria.Designer.cs">
+      <DependentUpon>fmrCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INVENTARIO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NOMINA.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDO_RECIBIDO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDO_RECIBIDO_PRODCUTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTO_MOVIMIENTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROVEEDOR.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PUESTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistarProveedor.Designer.cs">
+      <DependentUpon>RegistarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarCompra.Designer.cs">
+      <DependentUpon>RegistrarCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarProducto.Designer.cs">
+      <DependentUpon>RegistrarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STOCK.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VENTA.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VENTA_PRODUCTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ConsultarCompras.resx">
+      <DependentUpon>ConsultarCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarInventario.resx">
+      <DependentUpon>ConsultarInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarPedidos.resx">
+      <DependentUpon>ConsultarPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmrCategoria.resx">
+      <DependentUpon>fmrCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RegistarProveedor.resx">
+      <DependentUpon>RegistarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarCompra.resx">
+      <DependentUpon>RegistrarCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarProducto.resx">
+      <DependentUpon>RegistrarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DonJuanDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DonJuanDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DonJuanDB.edmx.diagram">
+      <DependentUpon>DonJuanDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DonJuanDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DonJuanDB.Context.cs</LastGenOutput>
+      <DependentUpon>DonJuanDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="DonJuanDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DonJuanDB.edmx</DependentUpon>
+      <LastGenOutput>DonJuanDB.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\logotipo_don_juan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
