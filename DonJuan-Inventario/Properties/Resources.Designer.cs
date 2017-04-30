@@ -63,9 +63,29 @@ namespace DonJuan_Inventario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap c7155f25_19cc_477d_859b_58980f4d550e {
+            get {
+                object obj = ResourceManager.GetObject("c7155f25-19cc-477d-859b-58980f4d550e", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logotipo_don_juan {
             get {
                 object obj = ResourceManager.GetObject("logotipo_don_juan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pluszjel {
+            get {
+                object obj = ResourceManager.GetObject("pluszjel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

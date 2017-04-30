@@ -47,7 +47,6 @@ namespace DonJuan_Inventario
                 donJuan.COMPRAs.Add(compra);
                 donJuan.SaveChanges();
                 MessageBox.Show("Se agrego una Compra!");
-                txtcantidad.Clear();
                 txtCompraID.Clear();
                 txtEstado.Clear();
                 txtSubTotal.Clear();

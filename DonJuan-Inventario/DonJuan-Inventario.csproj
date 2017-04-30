@@ -251,6 +251,8 @@
       <DependentUpon>DonJuanDB.edmx</DependentUpon>
       <LastGenOutput>DonJuanDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\c7155f25-19cc-477d-859b-58980f4d550e.png" />
+    <None Include="Resources\pluszjel.png" />
     <None Include="Resources\logotipo_don_juan.png" />
   </ItemGroup>
   <ItemGroup>

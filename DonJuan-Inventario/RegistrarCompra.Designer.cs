@@ -44,9 +44,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCompraID = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.txtcantidad = new System.Windows.Forms.TextBox();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dtgProducto = new System.Windows.Forms.DataGridView();
+            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCantidad = new System.Windows.Forms.NumericUpDown();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -81,11 +89,10 @@
             // 
             this.cmbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Location = new System.Drawing.Point(109, 11);
+            this.cmbProducto.Location = new System.Drawing.Point(509, 50);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(121, 21);
             this.cmbProducto.TabIndex = 2;
-            this.cmbProducto.Visible = false;
             this.cmbProducto.SelectedIndexChanged += new System.EventHandler(this.cmbProducto_SelectedIndexChanged);
             // 
             // label8
@@ -93,18 +100,17 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 9);
+            this.label8.Location = new System.Drawing.Point(426, 51);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 20);
             this.label8.TabIndex = 49;
             this.label8.Text = "Producto:";
-            this.label8.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(52, 29);
+            this.label7.Location = new System.Drawing.Point(34, 29);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(327, 42);
             this.label7.TabIndex = 48;
@@ -112,7 +118,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(246, 394);
+            this.btnSalir.Location = new System.Drawing.Point(613, 416);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(115, 40);
             this.btnSalir.TabIndex = 10;
@@ -122,7 +128,7 @@
             // 
             // btnRegistrarCompra
             // 
-            this.btnRegistrarCompra.Location = new System.Drawing.Point(67, 385);
+            this.btnRegistrarCompra.Location = new System.Drawing.Point(198, 416);
             this.btnRegistrarCompra.Name = "btnRegistrarCompra";
             this.btnRegistrarCompra.Size = new System.Drawing.Size(115, 40);
             this.btnRegistrarCompra.TabIndex = 9;
@@ -177,12 +183,11 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 45);
+            this.label2.Location = new System.Drawing.Point(658, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 41;
             this.label2.Text = "Cantidad:";
-            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -211,14 +216,6 @@
             this.txtTotal.Size = new System.Drawing.Size(144, 20);
             this.txtTotal.TabIndex = 5;
             // 
-            // txtcantidad
-            // 
-            this.txtcantidad.Location = new System.Drawing.Point(109, 47);
-            this.txtcantidad.Name = "txtcantidad";
-            this.txtcantidad.Size = new System.Drawing.Size(130, 20);
-            this.txtcantidad.TabIndex = 3;
-            this.txtcantidad.Visible = false;
-            // 
             // txtSubTotal
             // 
             this.txtSubTotal.Location = new System.Drawing.Point(131, 148);
@@ -233,11 +230,84 @@
             this.dtpFecha.Size = new System.Drawing.Size(200, 20);
             this.dtpFecha.TabIndex = 6;
             // 
+            // dtgProducto
+            // 
+            this.dtgProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDProducto,
+            this.NombreProducto,
+            this.Cantidad});
+            this.dtgProducto.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtgProducto.EnableHeadersVisualStyles = false;
+            this.dtgProducto.Location = new System.Drawing.Point(410, 103);
+            this.dtgProducto.Name = "dtgProducto";
+            this.dtgProducto.ReadOnly = true;
+            this.dtgProducto.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dtgProducto.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtgProducto.RowHeadersVisible = false;
+            this.dtgProducto.Size = new System.Drawing.Size(512, 242);
+            this.dtgProducto.StandardTab = true;
+            this.dtgProducto.TabIndex = 54;
+            // 
+            // IDProducto
+            // 
+            this.IDProducto.HeaderText = "ID";
+            this.IDProducto.Name = "IDProducto";
+            this.IDProducto.ReadOnly = true;
+            // 
+            // NombreProducto
+            // 
+            this.NombreProducto.HeaderText = "Producto";
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(741, 49);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(43, 20);
+            this.txtCantidad.TabIndex = 56;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAgregar.Location = new System.Drawing.Point(801, 29);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(91, 29);
+            this.btnAgregar.TabIndex = 57;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEliminar.Location = new System.Drawing.Point(801, 64);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(91, 29);
+            this.btnEliminar.TabIndex = 58;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
             // RegistrarCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 462);
+            this.ClientSize = new System.Drawing.Size(934, 478);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.txtCantidad);
+            this.Controls.Add(this.dtgProducto);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtEstado);
@@ -255,7 +325,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCompraID);
             this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.txtcantidad);
             this.Controls.Add(this.txtSubTotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -263,6 +332,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Compra";
             this.Load += new System.EventHandler(this.RegistrarCompra_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,8 +357,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCompraID;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.DataGridView dtgProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.NumericUpDown txtCantidad;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
