@@ -28,21 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarCompras));
             this.btnSalir = new System.Windows.Forms.Button();
             this.dtgCompras = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.Compra_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCompras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(391, 378);
+            this.btnSalir.Location = new System.Drawing.Point(398, 413);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(133, 45);
             this.btnSalir.TabIndex = 23;
@@ -52,9 +55,6 @@
             // 
             // dtgCompras
             // 
-            this.dtgCompras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Compra_ID,
@@ -65,7 +65,7 @@
             this.Fecha});
             this.dtgCompras.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtgCompras.EnableHeadersVisualStyles = false;
-            this.dtgCompras.Location = new System.Drawing.Point(34, 78);
+            this.dtgCompras.Location = new System.Drawing.Point(36, 109);
             this.dtgCompras.Name = "dtgCompras";
             this.dtgCompras.ReadOnly = true;
             this.dtgCompras.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -74,16 +74,6 @@
             this.dtgCompras.Size = new System.Drawing.Size(834, 268);
             this.dtgCompras.StandardTab = true;
             this.dtgCompras.TabIndex = 22;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(266, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(356, 42);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Consultar Compras";
             // 
             // Compra_ID
             // 
@@ -127,21 +117,47 @@
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Orange;
+            this.label7.Location = new System.Drawing.Point(273, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(356, 42);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Consultar Compras";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::DonJuan_Inventario.Properties.Resources.logotipo_don_juan;
+            this.pictureBox1.Location = new System.Drawing.Point(675, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(245, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
             // ConsultarCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 435);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(932, 487);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dtgCompras);
             this.Controls.Add(this.label7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ConsultarCompras";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Compras Realizadas";
             this.Load += new System.EventHandler(this.ConsultarCompras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCompras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +174,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

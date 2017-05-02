@@ -14,6 +14,7 @@ namespace DonJuan_Inventario
     {
         BD_DONJUANEntities Conectar = new BD_DONJUANEntities();
         SQLC con = new SQLC();
+        Validaciones V = new Validaciones();
         string product= "";
         string provee = "";
 
@@ -34,25 +35,28 @@ namespace DonJuan_Inventario
         private void btnRegistrarCompra_Click(object sender, EventArgs e)
         {
             var compra = new COMPRA();
-
-            compra.COMPRA_ID = Convert.ToInt32(txtCompraID.Text);
-            compra.SUBTOTAL = Convert.ToDecimal(txtSubTotal.Text);
-            compra.TOTAL = Convert.ToDecimal(txtTotal.Text);
-            compra.FECHA = Convert.ToDateTime(dtpFecha.Text);
-            compra.ESTADO = txtEstado.Text;
-            compra.PROVEEDOR_ID = Convert.ToInt32(provee);
-
-            using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
+            V.BRegistrarCompra(txtSubTotal, txtTotal, txtEstado, ErrorP1);
+            if (V.VRegistrarCompra(txtSubTotal, txtTotal, txtEstado, ErrorP1))
             {
-                donJuan.COMPRAs.Add(compra);
-                donJuan.SaveChanges();
-                MessageBox.Show("Se agrego una Compra!");
-                txtCompraID.Clear();
-                txtEstado.Clear();
-                txtSubTotal.Clear();
-                txtTotal.Clear();
-                cmbProducto.Focus();
-                con.idcompra(txtCompraID);
+                compra.COMPRA_ID = Convert.ToInt32(txtCompraID.Text);
+                compra.SUBTOTAL = Convert.ToDecimal(txtSubTotal.Text);
+                compra.TOTAL = Convert.ToDecimal(txtTotal.Text);
+                compra.FECHA = Convert.ToDateTime(dtpFecha.Text);
+                compra.ESTADO = txtEstado.Text;
+                compra.PROVEEDOR_ID = Convert.ToInt32(provee);
+
+                using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
+                {
+                    donJuan.COMPRAs.Add(compra);
+                    donJuan.SaveChanges();
+                    MessageBox.Show("Se agrego una Compra!");
+                    txtCompraID.Clear();
+                    txtEstado.Clear();
+                    txtSubTotal.Clear();
+                    txtTotal.Clear();
+                    cmbProducto.Focus();
+                    con.idcompra(txtCompraID);
+                }
             }
         }
         private void ListarProducto()
@@ -83,12 +87,27 @@ namespace DonJuan_Inventario
 
         private void cmbProveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            provee = cmbProducto.SelectedValue.ToString();
+            provee = cmbProveedor.SelectedValue.ToString();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSubTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.PermitirNumeros(sender, e);
+        }
+
+        private void txtTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.PermitirNumeros(sender, e);
+        }
+
+        private void txtEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.PermitirLetras(sender, e);
         }
     }
 }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrCategoria));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategoriaID = new System.Windows.Forms.TextBox();
@@ -35,6 +37,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnRegistrarCategoria = new System.Windows.Forms.Button();
+            this.ErrorP1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -87,6 +93,7 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSalir.Location = new System.Drawing.Point(378, 164);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(115, 40);
@@ -97,6 +104,7 @@
             // 
             // btnRegistrarCategoria
             // 
+            this.btnRegistrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRegistrarCategoria.Location = new System.Drawing.Point(70, 164);
             this.btnRegistrarCategoria.Name = "btnRegistrarCategoria";
             this.btnRegistrarCategoria.Size = new System.Drawing.Size(115, 40);
@@ -105,11 +113,28 @@
             this.btnRegistrarCategoria.UseVisualStyleBackColor = true;
             this.btnRegistrarCategoria.Click += new System.EventHandler(this.btnRegistrarCategoria_Click);
             // 
+            // ErrorP1
+            // 
+            this.ErrorP1.ContainerControl = this;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::DonJuan_Inventario.Properties.Resources.logotipo_don_juan;
+            this.pictureBox1.Location = new System.Drawing.Point(290, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(245, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            // 
             // fmrCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(547, 216);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnRegistrarCategoria);
             this.Controls.Add(this.label7);
@@ -117,12 +142,16 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCategoriaID);
             this.Controls.Add(this.txtNomCategoria);
+            this.ForeColor = System.Drawing.Color.Orange;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "fmrCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Nueva Categoria";
             this.Load += new System.EventHandler(this.fmrCategoria_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +166,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnRegistrarCategoria;
+        private System.Windows.Forms.ErrorProvider ErrorP1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -13,6 +13,8 @@ namespace DonJuan_Inventario
     public partial class fmrCategoria : Form
     {
         SQLC con = new SQLC();
+        Validaciones V = new Validaciones();
+       
         public fmrCategoria()
         {
             InitializeComponent();
@@ -25,22 +27,26 @@ namespace DonJuan_Inventario
 
         private void btnRegistrarCategoria_Click(object sender, EventArgs e)
         {
+  
             var categoria = new CATEGORIA();
-            categoria.CATEGORIA_ID = Convert.ToInt32(txtCategoriaID.Text);
-            categoria.NOMBRE = txtNomCategoria.Text;
-            using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
+
+            V.BRegistrarCategoria(txtNomCategoria, ErrorP1);
+            if (V.VRegistrarCategoria(txtNomCategoria, ErrorP1))
             {
-                donJuan.CATEGORIAs.Add(categoria);
-                donJuan.SaveChanges();
-                MessageBox.Show("Se agrego una categoria!");
+                categoria.CATEGORIA_ID = Convert.ToInt32(txtCategoriaID.Text);
+                categoria.NOMBRE = txtNomCategoria.Text;
+                using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
+                {
+                    donJuan.CATEGORIAs.Add(categoria);
+                    donJuan.SaveChanges();
+                    MessageBox.Show("Se agrego una categoria!");
+                }
             }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-            RegistrarProducto RP = new RegistrarProducto();
-            RP.Show();
         }
     }
 }

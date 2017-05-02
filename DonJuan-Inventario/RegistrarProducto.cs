@@ -14,6 +14,7 @@ namespace DonJuan_Inventario
     {
         BD_DONJUANEntities Conectar = new BD_DONJUANEntities();
         SQLC con = new SQLC();
+        Validaciones V = new Validaciones();
         string categ = "";
         string provee = "";
 
@@ -36,38 +37,41 @@ namespace DonJuan_Inventario
         {
             fmrCategoria FC = new fmrCategoria();
             FC.Show();
-            this.Close();
         }
 
         private void btnRegistrarProducto_Click(object sender, EventArgs e)
         {
-            var producto = new PRODUCTO();
+                var producto = new PRODUCTO();
 
 
-            producto.PRODUCTO_ID = Convert.ToInt32(txtProductoID.Text);
-            producto.NOMBRE = txtNombreProducto.Text;
-            producto.PRECIO = Convert.ToDecimal(txtPrecio.Text);
-            producto.COSTO = Convert.ToDecimal(txtCostoProducto.Text);
-            producto.UNIDAD = cmbUnidad.Text;
-            producto.MARCA = txtMarcaProducto.Text;
-            producto.PROVEEDOR_ID = Convert.ToInt32(provee);
-            producto.CATEGORIA_ID = Convert.ToInt32(categ);
 
 
-            using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
+            V.BRegistrarProducto(txtNombreProducto, txtPrecio, txtCostoProducto, txtMarcaProducto, ErrorP1);
+            if (V.VRegistrarProducto(txtNombreProducto, txtPrecio, txtCostoProducto, txtMarcaProducto, ErrorP1))
             {
-                donJuan.PRODUCTOes.Add(producto);
-                donJuan.SaveChanges();
-                MessageBox.Show("Se agrego una Producto!");
-                txtProductoID.Clear();
-                txtNombreProducto.Clear();
-                txtPrecio.Clear();
-                txtMarcaProducto.Clear();
-                txtCostoProducto.Clear();
-                txtNombreProducto.Focus();
-                con.idproducto(txtProductoID);
+                producto.PRODUCTO_ID = Convert.ToInt32(txtProductoID.Text);
+                producto.NOMBRE = txtNombreProducto.Text;
+                producto.PRECIO = Convert.ToDecimal(txtPrecio.Text);
+                producto.COSTO = Convert.ToDecimal(txtCostoProducto.Text);
+                producto.UNIDAD = cmbUnidad.Text;
+                producto.MARCA = txtMarcaProducto.Text;
+                producto.PROVEEDOR_ID = Convert.ToInt32(provee);
+                producto.CATEGORIA_ID = Convert.ToInt32(categ);
+
+                using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
+                {
+                    donJuan.PRODUCTOes.Add(producto);
+                    donJuan.SaveChanges();
+                    MessageBox.Show("Se agrego una Producto!");
+                    txtProductoID.Clear();
+                    txtNombreProducto.Clear();
+                    txtPrecio.Clear();
+                    txtMarcaProducto.Clear();
+                    txtCostoProducto.Clear();
+                    txtNombreProducto.Focus();
+                    con.idproducto(txtProductoID);
+                }
             }
-            
         }
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -78,7 +82,7 @@ namespace DonJuan_Inventario
         {
             provee = cmbProveedor.SelectedValue.ToString();
         }
-        private void ListarCategoria()
+        public void ListarCategoria()
         {
             var lista = Conectar.CATEGORIAs.ToList();
             if (lista.Count > 0)
@@ -102,6 +106,31 @@ namespace DonJuan_Inventario
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbCategoria_MouseClick(object sender, MouseEventArgs e)
+        {
+            ListarCategoria();
+        }
+
+        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.PermitirLetras(sender, e);
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.PermitirNumeros(sender, e);
+        }
+
+        private void txtCostoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.PermitirNumeros(sender, e);
+        }
+
+        private void txtMarcaProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.PermitirLetras(sender, e);
         }
     }
 }

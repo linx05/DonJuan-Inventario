@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistarProveedor));
             this.label7 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnRegistrarProveedor = new System.Windows.Forms.Button();
@@ -43,13 +45,17 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtNombreProveedor = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.ErrorP1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(124, 25);
+            this.label7.Location = new System.Drawing.Point(41, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(371, 42);
             this.label7.TabIndex = 29;
@@ -57,7 +63,8 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(460, 397);
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSalir.Location = new System.Drawing.Point(463, 397);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(115, 40);
             this.btnSalir.TabIndex = 8;
@@ -67,6 +74,7 @@
             // 
             // btnRegistrarProveedor
             // 
+            this.btnRegistrarProveedor.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRegistrarProveedor.Location = new System.Drawing.Point(152, 397);
             this.btnRegistrarProveedor.Name = "btnRegistrarProveedor";
             this.btnRegistrarProveedor.Size = new System.Drawing.Size(115, 40);
@@ -122,7 +130,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 145);
+            this.label2.Location = new System.Drawing.Point(3, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 20);
             this.label2.TabIndex = 22;
@@ -168,13 +176,15 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(144, 20);
             this.txtTelefono.TabIndex = 4;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtNombreProveedor
             // 
-            this.txtNombreProveedor.Location = new System.Drawing.Point(180, 148);
+            this.txtNombreProveedor.Location = new System.Drawing.Point(179, 148);
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.Size = new System.Drawing.Size(398, 20);
             this.txtNombreProveedor.TabIndex = 2;
+            this.txtNombreProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreProveedor_KeyPress);
             // 
             // txtDireccion
             // 
@@ -183,11 +193,28 @@
             this.txtDireccion.Size = new System.Drawing.Size(398, 20);
             this.txtDireccion.TabIndex = 3;
             // 
+            // ErrorP1
+            // 
+            this.ErrorP1.ContainerControl = this;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::DonJuan_Inventario.Properties.Resources.logotipo_don_juan;
+            this.pictureBox1.Location = new System.Drawing.Point(418, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(245, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
             // RegistarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 468);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(672, 468);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnRegistrarProveedor);
@@ -203,12 +230,16 @@
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtNombreProveedor);
             this.Controls.Add(this.txtDireccion);
+            this.ForeColor = System.Drawing.Color.Orange;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "RegistarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registar Nuevo Proveedor";
             this.Load += new System.EventHandler(this.RegistarProveedor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +262,7 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtNombreProveedor;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.ErrorProvider ErrorP1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
