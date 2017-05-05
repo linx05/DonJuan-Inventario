@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarPedidos));
             this.btnSalir = new System.Windows.Forms.Button();
             this.dtgPedidos = new System.Windows.Forms.DataGridView();
-            this.IDPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPedidos)).BeginInit();
@@ -58,12 +53,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDPedido,
-            this.Producto,
-            this.CantidadPedido,
-            this.FechaPedido,
-            this.EstadoPedido});
             this.dtgPedidos.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtgPedidos.EnableHeadersVisualStyles = false;
             this.dtgPedidos.Location = new System.Drawing.Point(10, 96);
@@ -75,36 +64,6 @@
             this.dtgPedidos.Size = new System.Drawing.Size(810, 290);
             this.dtgPedidos.StandardTab = true;
             this.dtgPedidos.TabIndex = 19;
-            // 
-            // IDPedido
-            // 
-            this.IDPedido.HeaderText = "ID Pedido";
-            this.IDPedido.Name = "IDPedido";
-            this.IDPedido.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // CantidadPedido
-            // 
-            this.CantidadPedido.HeaderText = "Cantidad";
-            this.CantidadPedido.Name = "CantidadPedido";
-            this.CantidadPedido.ReadOnly = true;
-            // 
-            // FechaPedido
-            // 
-            this.FechaPedido.HeaderText = "Fecha";
-            this.FechaPedido.Name = "FechaPedido";
-            this.FechaPedido.ReadOnly = true;
-            // 
-            // EstadoPedido
-            // 
-            this.EstadoPedido.HeaderText = "Estado";
-            this.EstadoPedido.Name = "EstadoPedido";
-            this.EstadoPedido.ReadOnly = true;
             // 
             // label7
             // 
@@ -144,6 +103,7 @@
             this.Name = "ConsultarPedidos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Pedidos";
+            this.Load += new System.EventHandler(this.ConsultarPedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -155,11 +115,6 @@
 
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dtgPedidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoPedido;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

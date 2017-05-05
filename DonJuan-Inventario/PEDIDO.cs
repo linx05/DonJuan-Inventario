@@ -11,7 +11,8 @@ namespace DonJuan_Inventario
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class PEDIDO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +21,7 @@ namespace DonJuan_Inventario
             this.PEDIDO_RECIBIDO = new HashSet<PEDIDO_RECIBIDO>();
             this.PRODUCTO_MOVIMIENTO = new HashSet<PRODUCTO_MOVIMIENTO>();
         }
-    
+        [DisplayName("ID Pedidos")]
         public int PEDIDO_ID { get; set; }
         public string ESTADO { get; set; }
         public Nullable<System.DateTime> FECHA { get; set; }

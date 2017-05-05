@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarInventario));
             this.btnSalir = new System.Windows.Forms.Button();
             this.dtginventario = new System.Windows.Forms.DataGridView();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtginventario)).BeginInit();
@@ -56,10 +53,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtginventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtginventario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDProducto,
-            this.NombreProducto,
-            this.Cantidad});
             this.dtginventario.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtginventario.EnableHeadersVisualStyles = false;
             this.dtginventario.Location = new System.Drawing.Point(12, 104);
@@ -71,24 +64,6 @@
             this.dtginventario.Size = new System.Drawing.Size(664, 264);
             this.dtginventario.StandardTab = true;
             this.dtginventario.TabIndex = 25;
-            // 
-            // IDProducto
-            // 
-            this.IDProducto.HeaderText = "ID";
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.HeaderText = "Producto";
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
             // 
             // label7
             // 
@@ -129,6 +104,7 @@
             this.Name = "ConsultarInventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Inventario";
+            this.Load += new System.EventHandler(this.ConsultarInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtginventario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -140,9 +116,6 @@
 
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dtginventario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

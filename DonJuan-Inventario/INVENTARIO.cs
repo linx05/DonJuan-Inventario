@@ -11,13 +11,23 @@ namespace DonJuan_Inventario
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class INVENTARIO
     {
+        [DisplayName("ID Inventario")]
         public int INVENTARIO_ID { get; set; }
+        [DisplayName("ID Producto")]
         public int PRODUCTO_ID { get; set; }
+        [DisplayName("Cantidad")]
         public int CANTIDAD { get; set; }
-    
+        [System.ComponentModel.Browsable(false)]
         public virtual PRODUCTO PRODUCTO { get; set; }
+
+        [DisplayName("Producto")]
+        public string ProductName
+        {
+            get { return PRODUCTO.NOMBRE; }
+        }
     }
 }
