@@ -19,16 +19,17 @@
           <Key>
             <PropertyRef Name="CATEGORIA_ID" />
           </Key>
-          <Property Name="CATEGORIA_ID" Type="int" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="CATEGORIA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CLIENTE">
           <Key>
             <PropertyRef Name="CLIENTE_ID" />
           </Key>
-          <Property Name="CLIENTE_ID" Type="int" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar" MaxLength="30" />
-          <Property Name="TELEFONO" Type="int" />
+          <Property Name="TELEFONO" Type="varbinary(max)" />
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
           <Property Name="ESTILISTA" Type="bit" />
           <Property Name="RFC" Type="varchar" MaxLength="12" />
@@ -36,6 +37,7 @@
           <Property Name="CODIGO_POSTAL" Type="int" />
           <Property Name="CIUDAD" Type="varchar" MaxLength="30" />
           <Property Name="ESTADO" Type="varchar" MaxLength="30" />
+          <Property Name="CLIENTE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="COMPRA">
           <Key>
@@ -63,8 +65,9 @@
           <Key>
             <PropertyRef Name="FACTURACION_ID" />
           </Key>
-          <Property Name="FACTURACION_ID" Type="int" Nullable="false" />
+          <Property Name="FACTURACION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VENTA_ID" Type="int" Nullable="false" />
+          <Property Name="CLIENTE_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="INVENTARIO">
           <Key>
@@ -87,7 +90,7 @@
           <Key>
             <PropertyRef Name="PEDIDO_ID" />
           </Key>
-          <Property Name="PEDIDO_ID" Type="int" Nullable="false" />
+          <Property Name="PEDIDO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ESTADO" Type="varchar" MaxLength="50" />
           <Property Name="FECHA" Type="date" />
         </EntityType>
@@ -95,15 +98,15 @@
           <Key>
             <PropertyRef Name="PEDIDO_REC_ID" />
           </Key>
-          <Property Name="PEDIDO_REC_ID" Type="int" Nullable="false" />
+          <Property Name="PEDIDO_REC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PEDIDO_ID" Type="int" Nullable="false" />
           <Property Name="FECHA" Type="date" />
         </EntityType>
-        <EntityType Name="PEDIDO_RECIBIDO_PRODCUTO">
+        <EntityType Name="PEDIDO_RECIBIDO_PRODUCTO">
           <Key>
-            <PropertyRef Name="PEDIDO_REC_PRODCUTO_ID" />
+            <PropertyRef Name="PEDIDO_REC_PRODUCTO_ID" />
           </Key>
-          <Property Name="PEDIDO_REC_PRODCUTO_ID" Type="int" Nullable="false" />
+          <Property Name="PEDIDO_REC_PRODUCTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PEDIDO_REC_ID" Type="int" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="CANTIDAD" Type="int" Nullable="false" />
@@ -114,7 +117,7 @@
           </Key>
           <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="CATEGORIA_ID" Type="int" Nullable="false" />
-          <Property Name="PROVEEDOR_ID" Type="int" Nullable="false" />
+          <Property Name="PROVEEDOR_ID" Type="int" />
           <Property Name="NOMBRE" Type="varchar" MaxLength="30" />
           <Property Name="PRECIO" Type="money" />
           <Property Name="COSTO" Type="money" />
@@ -125,12 +128,12 @@
           <Key>
             <PropertyRef Name="PRODUCTO_MOVIMIENTO_ID" />
           </Key>
-          <Property Name="PRODUCTO_MOVIMIENTO_ID" Type="int" Nullable="false" />
-          <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
-          <Property Name="PROVEEDOR_ID" Type="int" Nullable="false" />
-          <Property Name="COMPRA_ID" Type="int" Nullable="false" />
-          <Property Name="PEDIDO_ID" Type="int" Nullable="false" />
-          <Property Name="CANTIDAD" Type="int" Nullable="false" />
+          <Property Name="PRODUCTO_MOVIMIENTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCTO_ID" Type="int" />
+          <Property Name="PROVEEDOR_ID" Type="int" />
+          <Property Name="COMPRA_ID" Type="int" />
+          <Property Name="PEDIDO_ID" Type="int" />
+          <Property Name="CANTIDAD" Type="int" />
           <Property Name="TIPO" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="PROVEEDOR">
@@ -164,7 +167,7 @@
           <Key>
             <PropertyRef Name="VENTA_ID" />
           </Key>
-          <Property Name="VENTA_ID" Type="int" Nullable="false" />
+          <Property Name="VENTA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EMPLEADO_ID" Type="int" Nullable="false" />
           <Property Name="TOTAL" Type="money" />
           <Property Name="FECHA" Type="date" />
@@ -174,11 +177,14 @@
           <Key>
             <PropertyRef Name="VENTA_PRODUCTO_ID" />
           </Key>
-          <Property Name="VENTA_PRODUCTO_ID" Type="int" Nullable="false" />
+          <Property Name="VENTA_PRODUCTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VENTA_ID" Type="int" Nullable="false" />
+          <Property Name="CANTIDAD" Type="int" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="PRECIO_ACTUAL" Type="money" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BD_DONJUAN.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <Association Name="FK__ASISTENCI__EMPLE__3B75D760">
           <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -221,7 +227,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FACTURACI__VENTA__45F365D3">
+        <Association Name="FK__FACTURACI__VENTA__37703C52">
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -263,7 +269,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__5BE2A6F2">
+        <Association Name="FK__PEDIDO_RE__PEDID__40058253">
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -277,22 +283,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__5EBF139D">
+        <Association Name="FK__PEDIDO_RE__PEDID__42E1EEFE">
           <End Role="PEDIDO_RECIBIDO" Type="Self.PEDIDO_RECIBIDO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="PEDIDO_RECIBIDO_PRODCUTO" Type="Self.PEDIDO_RECIBIDO_PRODCUTO" Multiplicity="*" />
+          <End Role="PEDIDO_RECIBIDO_PRODUCTO" Type="Self.PEDIDO_RECIBIDO_PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO_RECIBIDO">
               <PropertyRef Name="PEDIDO_REC_ID" />
             </Principal>
-            <Dependent Role="PEDIDO_RECIBIDO_PRODCUTO">
+            <Dependent Role="PEDIDO_RECIBIDO_PRODUCTO">
               <PropertyRef Name="PEDIDO_REC_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___COMPR__66603565">
-          <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="1" />
+        <Association Name="FK__PRODUCTO___COMPR__4D5F7D71">
+          <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="0..1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="COMPRA">
@@ -303,8 +309,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PEDID__6754599E">
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+        <Association Name="FK__PRODUCTO___PEDID__4E53A1AA">
+          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="0..1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO">
@@ -315,8 +321,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PRODU__6477ECF3">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
+        <Association Name="FK__PRODUCTO___PRODU__4B7734FF">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTO">
@@ -327,8 +333,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PROVE__656C112C">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+        <Association Name="FK__PRODUCTO___PROVE__4C6B5938">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROVEEDOR">
@@ -339,22 +345,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO__CATEGO__4CA06362">
-          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORIA">
-              <PropertyRef Name="CATEGORIA_ID" />
-            </Principal>
-            <Dependent Role="PRODUCTO">
-              <PropertyRef Name="CATEGORIA_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCTO__PROVEE__4D94879B">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
+        <Association Name="FK__PRODUCTO__PROVEE__607251E5">
+          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
@@ -381,7 +373,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA__EMPLEADO___4316F928">
+        <Association Name="FK__VENTA__EMPLEADO___05D8E0BE">
           <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -395,7 +387,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA_PRO__PRODU__5441852A">
+        <Association Name="FK__VENTA_PRO__PRODU__3B40CD36">
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -409,7 +401,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA_PRO__VENTA__534D60F1">
+        <Association Name="FK__VENTA_PRO__VENTA__3A4CA8FD">
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -423,10 +415,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PRODUCTO_CATEGORIA">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="CATEGORIA_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="CATEGORIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BD_DONJUANModelStoreContainer">
           <EntitySet Name="ASISTENCIA" EntityType="Self.ASISTENCIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="COMPRA" EntityType="Self.COMPRA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FACTURACION" EntityType="Self.FACTURACION" Schema="dbo" store:Type="Tables" />
@@ -434,7 +437,7 @@
           <EntitySet Name="NOMINA" EntityType="Self.NOMINA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PEDIDO_RECIBIDO" EntityType="Self.PEDIDO_RECIBIDO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PEDIDO_RECIBIDO_PRODCUTO" EntityType="Self.PEDIDO_RECIBIDO_PRODCUTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PEDIDO_RECIBIDO_PRODUCTO" EntityType="Self.PEDIDO_RECIBIDO_PRODUCTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTO_MOVIMIENTO" EntityType="Self.PRODUCTO_MOVIMIENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
@@ -442,6 +445,20 @@
           <EntitySet Name="STOCK" EntityType="Self.STOCK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VENTA" EntityType="Self.VENTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VENTA_PRODUCTO" EntityType="Self.VENTA_PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CLIENTE].[NOMBRE] AS [NOMBRE], 
+    [CLIENTE].[TELEFONO] AS [TELEFONO], 
+    [CLIENTE].[EMAIL] AS [EMAIL], 
+    [CLIENTE].[ESTILISTA] AS [ESTILISTA], 
+    [CLIENTE].[RFC] AS [RFC], 
+    [CLIENTE].[DIRECCION] AS [DIRECCION], 
+    [CLIENTE].[CODIGO_POSTAL] AS [CODIGO_POSTAL], 
+    [CLIENTE].[CIUDAD] AS [CIUDAD], 
+    [CLIENTE].[ESTADO] AS [ESTADO], 
+    [CLIENTE].[CLIENTE_ID] AS [CLIENTE_ID]
+    FROM [dbo].[CLIENTE] AS [CLIENTE]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__ASISTENCI__EMPLE__3B75D760" Association="Self.FK__ASISTENCI__EMPLE__3B75D760">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="ASISTENCIA" EntitySet="ASISTENCIA" />
@@ -454,7 +471,7 @@
             <End Role="PUESTO" EntitySet="PUESTO" />
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
           </AssociationSet>
-          <AssociationSet Name="FK__FACTURACI__VENTA__45F365D3" Association="Self.FK__FACTURACI__VENTA__45F365D3">
+          <AssociationSet Name="FK__FACTURACI__VENTA__37703C52" Association="Self.FK__FACTURACI__VENTA__37703C52">
             <End Role="VENTA" EntitySet="VENTA" />
             <End Role="FACTURACION" EntitySet="FACTURACION" />
           </AssociationSet>
@@ -466,35 +483,31 @@
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="NOMINA" EntitySet="NOMINA" />
           </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__5BE2A6F2" Association="Self.FK__PEDIDO_RE__PEDID__5BE2A6F2">
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__40058253" Association="Self.FK__PEDIDO_RE__PEDID__40058253">
             <End Role="PEDIDO" EntitySet="PEDIDO" />
             <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__5EBF139D" Association="Self.FK__PEDIDO_RE__PEDID__5EBF139D">
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__42E1EEFE" Association="Self.FK__PEDIDO_RE__PEDID__42E1EEFE">
             <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
-            <End Role="PEDIDO_RECIBIDO_PRODCUTO" EntitySet="PEDIDO_RECIBIDO_PRODCUTO" />
+            <End Role="PEDIDO_RECIBIDO_PRODUCTO" EntitySet="PEDIDO_RECIBIDO_PRODUCTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___COMPR__66603565" Association="Self.FK__PRODUCTO___COMPR__66603565">
+          <AssociationSet Name="FK__PRODUCTO___COMPR__4D5F7D71" Association="Self.FK__PRODUCTO___COMPR__4D5F7D71">
             <End Role="COMPRA" EntitySet="COMPRA" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PEDID__6754599E" Association="Self.FK__PRODUCTO___PEDID__6754599E">
+          <AssociationSet Name="FK__PRODUCTO___PEDID__4E53A1AA" Association="Self.FK__PRODUCTO___PEDID__4E53A1AA">
             <End Role="PEDIDO" EntitySet="PEDIDO" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PRODU__6477ECF3" Association="Self.FK__PRODUCTO___PRODU__6477ECF3">
+          <AssociationSet Name="FK__PRODUCTO___PRODU__4B7734FF" Association="Self.FK__PRODUCTO___PRODU__4B7734FF">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PROVE__656C112C" Association="Self.FK__PRODUCTO___PROVE__656C112C">
+          <AssociationSet Name="FK__PRODUCTO___PROVE__4C6B5938" Association="Self.FK__PRODUCTO___PROVE__4C6B5938">
             <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO__CATEGO__4CA06362" Association="Self.FK__PRODUCTO__CATEGO__4CA06362">
-            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO__PROVEE__4D94879B" Association="Self.FK__PRODUCTO__PROVEE__4D94879B">
+          <AssociationSet Name="FK__PRODUCTO__PROVEE__607251E5" Association="Self.FK__PRODUCTO__PROVEE__607251E5">
             <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
@@ -502,23 +515,119 @@
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="STOCK" EntitySet="STOCK" />
           </AssociationSet>
-          <AssociationSet Name="FK__VENTA__EMPLEADO___4316F928" Association="Self.FK__VENTA__EMPLEADO___4316F928">
+          <AssociationSet Name="FK__VENTA__EMPLEADO___05D8E0BE" Association="Self.FK__VENTA__EMPLEADO___05D8E0BE">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__PRODU__5441852A" Association="Self.FK__VENTA_PRO__PRODU__5441852A">
+          <AssociationSet Name="FK__VENTA_PRO__PRODU__3B40CD36" Association="Self.FK__VENTA_PRO__PRODU__3B40CD36">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__VENTA__534D60F1" Association="Self.FK__VENTA_PRO__VENTA__534D60F1">
+          <AssociationSet Name="FK__VENTA_PRO__VENTA__3A4CA8FD" Association="Self.FK__VENTA_PRO__VENTA__3A4CA8FD">
             <End Role="VENTA" EntitySet="VENTA" />
             <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_CATEGORIA" Association="Self.FK_PRODUCTO_CATEGORIA">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BD_DONJUANModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BD_DONJUANEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ASISTENCIAs" EntityType="BD_DONJUANModel.ASISTENCIA" />
+          <EntitySet Name="COMPRAs" EntityType="BD_DONJUANModel.COMPRA" />
+          <EntitySet Name="EMPLEADOes" EntityType="BD_DONJUANModel.EMPLEADO" />
+          <EntitySet Name="FACTURACIONs" EntityType="BD_DONJUANModel.FACTURACION" />
+          <EntitySet Name="INVENTARIOs" EntityType="BD_DONJUANModel.INVENTARIO" />
+          <EntitySet Name="NOMINAs" EntityType="BD_DONJUANModel.NOMINA" />
+          <EntitySet Name="PEDIDOes" EntityType="BD_DONJUANModel.PEDIDO" />
+          <EntitySet Name="PEDIDO_RECIBIDO" EntityType="BD_DONJUANModel.PEDIDO_RECIBIDO" />
+          <EntitySet Name="PEDIDO_RECIBIDO_PRODUCTO" EntityType="BD_DONJUANModel.PEDIDO_RECIBIDO_PRODUCTO" />
+          <EntitySet Name="PRODUCTOes" EntityType="BD_DONJUANModel.PRODUCTO" />
+          <EntitySet Name="PRODUCTO_MOVIMIENTO" EntityType="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" />
+          <EntitySet Name="PROVEEDORs" EntityType="BD_DONJUANModel.PROVEEDOR" />
+          <EntitySet Name="PUESTOes" EntityType="BD_DONJUANModel.PUESTO" />
+          <EntitySet Name="STOCKs" EntityType="BD_DONJUANModel.STOCK" />
+          <EntitySet Name="VENTAs" EntityType="BD_DONJUANModel.VENTA" />
+          <EntitySet Name="VENTA_PRODUCTO" EntityType="BD_DONJUANModel.VENTA_PRODUCTO" />
+          <EntitySet Name="CATEGORIAs" EntityType="BD_DONJUANModel.CATEGORIA" />
+          <EntitySet Name="CLIENTEs" EntityType="BD_DONJUANModel.CLIENTE" />
+          <AssociationSet Name="FK__ASISTENCI__EMPLE__3B75D760" Association="BD_DONJUANModel.FK__ASISTENCI__EMPLE__3B75D760">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="ASISTENCIA" EntitySet="ASISTENCIAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPRA__PROVEEDO__619B8048" Association="BD_DONJUANModel.FK__COMPRA__PROVEEDO__619B8048">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="COMPRA" EntitySet="COMPRAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___COMPR__4D5F7D71" Association="BD_DONJUANModel.FK__PRODUCTO___COMPR__4D5F7D71">
+            <End Role="COMPRA" EntitySet="COMPRAs" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__PUESTO__38996AB5" Association="BD_DONJUANModel.FK__EMPLEADO__PUESTO__38996AB5">
+            <End Role="PUESTO" EntitySet="PUESTOes" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NOMINA__EMPLEADO__3E52440B" Association="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3E52440B">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="NOMINA" EntitySet="NOMINAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA__EMPLEADO___05D8E0BE" Association="BD_DONJUANModel.FK__VENTA__EMPLEADO___05D8E0BE">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="VENTA" EntitySet="VENTAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURACI__VENTA__37703C52" Association="BD_DONJUANModel.FK__FACTURACI__VENTA__37703C52">
+            <End Role="VENTA" EntitySet="VENTAs" />
+            <End Role="FACTURACION" EntitySet="FACTURACIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INVENTARI__PRODU__571DF1D5" Association="BD_DONJUANModel.FK__INVENTARI__PRODU__571DF1D5">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="INVENTARIO" EntitySet="INVENTARIOs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__40058253" Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__40058253">
+            <End Role="PEDIDO" EntitySet="PEDIDOes" />
+            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___PEDID__4E53A1AA" Association="BD_DONJUANModel.FK__PRODUCTO___PEDID__4E53A1AA">
+            <End Role="PEDIDO" EntitySet="PEDIDOes" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__42E1EEFE" Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__42E1EEFE">
+            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
+            <End Role="PEDIDO_RECIBIDO_PRODUCTO" EntitySet="PEDIDO_RECIBIDO_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___PRODU__4B7734FF" Association="BD_DONJUANModel.FK__PRODUCTO___PRODU__4B7734FF">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO__PROVEE__607251E5" Association="BD_DONJUANModel.FK__PRODUCTO__PROVEE__607251E5">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STOCK__PRODUCTO___5070F446" Association="BD_DONJUANModel.FK__STOCK__PRODUCTO___5070F446">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="STOCK" EntitySet="STOCKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA_PRO__PRODU__3B40CD36" Association="BD_DONJUANModel.FK__VENTA_PRO__PRODU__3B40CD36">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___PROVE__4C6B5938" Association="BD_DONJUANModel.FK__PRODUCTO___PROVE__4C6B5938">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA_PRO__VENTA__3A4CA8FD" Association="BD_DONJUANModel.FK__VENTA_PRO__VENTA__3A4CA8FD">
+            <End Role="VENTA" EntitySet="VENTAs" />
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_CATEGORIA" Association="BD_DONJUANModel.FK_PRODUCTO_CATEGORIA">
+            <End Role="CATEGORIA" EntitySet="CATEGORIAs" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="ASISTENCIA">
           <Key>
             <PropertyRef Name="ASISTENCIA_ID" />
@@ -528,30 +637,7 @@
           <Property Name="FECHA" Type="DateTime" Precision="0" />
           <Property Name="HORA_ENTRADA" Type="DateTime" Precision="0" />
           <Property Name="HORA_SALIDA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__ASISTENCI__EMPLE__3B75D760" FromRole="ASISTENCIA" ToRole="EMPLEADO" />
-        </EntityType>
-        <EntityType Name="CATEGORIA">
-          <Key>
-            <PropertyRef Name="CATEGORIA_ID" />
-          </Key>
-          <Property Name="CATEGORIA_ID" Type="Int32" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PRODUCTOes" Relationship="Self.FK__PRODUCTO__CATEGO__4CA06362" FromRole="CATEGORIA" ToRole="PRODUCTO" />
-        </EntityType>
-        <EntityType Name="CLIENTE">
-          <Key>
-            <PropertyRef Name="CLIENTE_ID" />
-          </Key>
-          <Property Name="CLIENTE_ID" Type="Int32" Nullable="false" />
-          <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO" Type="Int32" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ESTILISTA" Type="Boolean" />
-          <Property Name="RFC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CODIGO_POSTAL" Type="Int32" />
-          <Property Name="CIUDAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__ASISTENCI__EMPLE__3B75D760" FromRole="ASISTENCIA" ToRole="EMPLEADO" />
         </EntityType>
         <EntityType Name="COMPRA">
           <Key>
@@ -563,8 +649,8 @@
           <Property Name="TOTAL" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ESTADO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK__COMPRA__PROVEEDO__619B8048" FromRole="COMPRA" ToRole="PROVEEDOR" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="Self.FK__PRODUCTO___COMPR__66603565" FromRole="COMPRA" ToRole="PRODUCTO_MOVIMIENTO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__COMPRA__PROVEEDO__619B8048" FromRole="COMPRA" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___COMPR__4D5F7D71" FromRole="COMPRA" ToRole="PRODUCTO_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="EMPLEADO">
           <Key>
@@ -576,18 +662,19 @@
           <Property Name="RFC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ASISTENCIAs" Relationship="Self.FK__ASISTENCI__EMPLE__3B75D760" FromRole="EMPLEADO" ToRole="ASISTENCIA" />
-          <NavigationProperty Name="PUESTO" Relationship="Self.FK__EMPLEADO__PUESTO__38996AB5" FromRole="EMPLEADO" ToRole="PUESTO" />
-          <NavigationProperty Name="NOMINAs" Relationship="Self.FK__NOMINA__EMPLEADO__3E52440B" FromRole="EMPLEADO" ToRole="NOMINA" />
-          <NavigationProperty Name="VENTAs" Relationship="Self.FK__VENTA__EMPLEADO___4316F928" FromRole="EMPLEADO" ToRole="VENTA" />
+          <NavigationProperty Name="ASISTENCIAs" Relationship="BD_DONJUANModel.FK__ASISTENCI__EMPLE__3B75D760" FromRole="EMPLEADO" ToRole="ASISTENCIA" />
+          <NavigationProperty Name="PUESTO" Relationship="BD_DONJUANModel.FK__EMPLEADO__PUESTO__38996AB5" FromRole="EMPLEADO" ToRole="PUESTO" />
+          <NavigationProperty Name="NOMINAs" Relationship="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3E52440B" FromRole="EMPLEADO" ToRole="NOMINA" />
+          <NavigationProperty Name="VENTAs" Relationship="BD_DONJUANModel.FK__VENTA__EMPLEADO___05D8E0BE" FromRole="EMPLEADO" ToRole="VENTA" />
         </EntityType>
         <EntityType Name="FACTURACION">
           <Key>
             <PropertyRef Name="FACTURACION_ID" />
           </Key>
-          <Property Name="FACTURACION_ID" Type="Int32" Nullable="false" />
+          <Property Name="FACTURACION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VENTA_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="VENTA" Relationship="Self.FK__FACTURACI__VENTA__45F365D3" FromRole="FACTURACION" ToRole="VENTA" />
+          <Property Name="CLIENTE_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VENTA" Relationship="BD_DONJUANModel.FK__FACTURACI__VENTA__37703C52" FromRole="FACTURACION" ToRole="VENTA" />
         </EntityType>
         <EntityType Name="INVENTARIO">
           <Key>
@@ -596,7 +683,7 @@
           <Property Name="INVENTARIO_ID" Type="Int32" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__INVENTARI__PRODU__571DF1D5" FromRole="INVENTARIO" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__INVENTARI__PRODU__571DF1D5" FromRole="INVENTARIO" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="NOMINA">
           <Key>
@@ -606,37 +693,37 @@
           <Property Name="EMPLEADO_ID" Type="Int32" Nullable="false" />
           <Property Name="SUELDO_TOTAL" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="BONO" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__NOMINA__EMPLEADO__3E52440B" FromRole="NOMINA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3E52440B" FromRole="NOMINA" ToRole="EMPLEADO" />
         </EntityType>
         <EntityType Name="PEDIDO">
           <Key>
             <PropertyRef Name="PEDIDO_ID" />
           </Key>
-          <Property Name="PEDIDO_ID" Type="Int32" Nullable="false" />
+          <Property Name="PEDIDO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="Self.FK__PEDIDO_RE__PEDID__5BE2A6F2" FromRole="PEDIDO" ToRole="PEDIDO_RECIBIDO" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="Self.FK__PRODUCTO___PEDID__6754599E" FromRole="PEDIDO" ToRole="PRODUCTO_MOVIMIENTO" />
+          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__40058253" FromRole="PEDIDO" ToRole="PEDIDO_RECIBIDO" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PEDID__4E53A1AA" FromRole="PEDIDO" ToRole="PRODUCTO_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="PEDIDO_RECIBIDO">
           <Key>
             <PropertyRef Name="PEDIDO_REC_ID" />
           </Key>
-          <Property Name="PEDIDO_REC_ID" Type="Int32" Nullable="false" />
+          <Property Name="PEDIDO_REC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PEDIDO_ID" Type="Int32" Nullable="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="PEDIDO" Relationship="Self.FK__PEDIDO_RE__PEDID__5BE2A6F2" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO" />
-          <NavigationProperty Name="PEDIDO_RECIBIDO_PRODCUTO" Relationship="Self.FK__PEDIDO_RE__PEDID__5EBF139D" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO_RECIBIDO_PRODCUTO" />
+          <NavigationProperty Name="PEDIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__40058253" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO" />
+          <NavigationProperty Name="PEDIDO_RECIBIDO_PRODUCTO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__42E1EEFE" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO_RECIBIDO_PRODUCTO" />
         </EntityType>
-        <EntityType Name="PEDIDO_RECIBIDO_PRODCUTO">
+        <EntityType Name="PEDIDO_RECIBIDO_PRODUCTO">
           <Key>
-            <PropertyRef Name="PEDIDO_REC_PRODCUTO_ID" />
+            <PropertyRef Name="PEDIDO_REC_PRODUCTO_ID" />
           </Key>
-          <Property Name="PEDIDO_REC_PRODCUTO_ID" Type="Int32" Nullable="false" />
+          <Property Name="PEDIDO_REC_PRODUCTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PEDIDO_REC_ID" Type="Int32" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="Self.FK__PEDIDO_RE__PEDID__5EBF139D" FromRole="PEDIDO_RECIBIDO_PRODCUTO" ToRole="PEDIDO_RECIBIDO" />
+          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__42E1EEFE" FromRole="PEDIDO_RECIBIDO_PRODUCTO" ToRole="PEDIDO_RECIBIDO" />
         </EntityType>
         <EntityType Name="PRODUCTO">
           <Key>
@@ -644,34 +731,34 @@
           </Key>
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="CATEGORIA_ID" Type="Int32" Nullable="false" />
-          <Property Name="PROVEEDOR_ID" Type="Int32" Nullable="false" />
+          <Property Name="PROVEEDOR_ID" Type="Int32" />
           <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="PRECIO" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="COSTO" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="UNIDAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="MARCA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CATEGORIA" Relationship="Self.FK__PRODUCTO__CATEGO__4CA06362" FromRole="PRODUCTO" ToRole="CATEGORIA" />
-          <NavigationProperty Name="INVENTARIOs" Relationship="Self.FK__INVENTARI__PRODU__571DF1D5" FromRole="PRODUCTO" ToRole="INVENTARIO" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="Self.FK__PRODUCTO___PRODU__6477ECF3" FromRole="PRODUCTO" ToRole="PRODUCTO_MOVIMIENTO" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK__PRODUCTO__PROVEE__4D94879B" FromRole="PRODUCTO" ToRole="PROVEEDOR" />
-          <NavigationProperty Name="STOCKs" Relationship="Self.FK__STOCK__PRODUCTO___5070F446" FromRole="PRODUCTO" ToRole="STOCK" />
-          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="Self.FK__VENTA_PRO__PRODU__5441852A" FromRole="PRODUCTO" ToRole="VENTA_PRODUCTO" />
+          <NavigationProperty Name="INVENTARIOs" Relationship="BD_DONJUANModel.FK__INVENTARI__PRODU__571DF1D5" FromRole="PRODUCTO" ToRole="INVENTARIO" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PRODU__4B7734FF" FromRole="PRODUCTO" ToRole="PRODUCTO_MOVIMIENTO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__PRODUCTO__PROVEE__607251E5" FromRole="PRODUCTO" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="STOCKs" Relationship="BD_DONJUANModel.FK__STOCK__PRODUCTO___5070F446" FromRole="PRODUCTO" ToRole="STOCK" />
+          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__PRODU__3B40CD36" FromRole="PRODUCTO" ToRole="VENTA_PRODUCTO" />
+          <NavigationProperty Name="CATEGORIA" Relationship="BD_DONJUANModel.FK_PRODUCTO_CATEGORIA" FromRole="PRODUCTO" ToRole="CATEGORIA" />
         </EntityType>
         <EntityType Name="PRODUCTO_MOVIMIENTO">
           <Key>
             <PropertyRef Name="PRODUCTO_MOVIMIENTO_ID" />
           </Key>
-          <Property Name="PRODUCTO_MOVIMIENTO_ID" Type="Int32" Nullable="false" />
-          <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
-          <Property Name="PROVEEDOR_ID" Type="Int32" Nullable="false" />
-          <Property Name="COMPRA_ID" Type="Int32" Nullable="false" />
-          <Property Name="PEDIDO_ID" Type="Int32" Nullable="false" />
-          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCTO_MOVIMIENTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCTO_ID" Type="Int32" />
+          <Property Name="PROVEEDOR_ID" Type="Int32" />
+          <Property Name="COMPRA_ID" Type="Int32" />
+          <Property Name="PEDIDO_ID" Type="Int32" />
+          <Property Name="CANTIDAD" Type="Int32" />
           <Property Name="TIPO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="COMPRA" Relationship="Self.FK__PRODUCTO___COMPR__66603565" FromRole="PRODUCTO_MOVIMIENTO" ToRole="COMPRA" />
-          <NavigationProperty Name="PEDIDO" Relationship="Self.FK__PRODUCTO___PEDID__6754599E" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PEDIDO" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__PRODUCTO___PRODU__6477ECF3" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PRODUCTO" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="Self.FK__PRODUCTO___PROVE__656C112C" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="COMPRA" Relationship="BD_DONJUANModel.FK__PRODUCTO___COMPR__4D5F7D71" FromRole="PRODUCTO_MOVIMIENTO" ToRole="COMPRA" />
+          <NavigationProperty Name="PEDIDO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PEDID__4E53A1AA" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PEDIDO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PRODU__4B7734FF" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__PRODUCTO___PROVE__4C6B5938" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PROVEEDOR" />
         </EntityType>
         <EntityType Name="PROVEEDOR">
           <Key>
@@ -680,12 +767,12 @@
           <Property Name="PROVEEDOR_ID" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="RFC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="COMPRAs" Relationship="Self.FK__COMPRA__PROVEEDO__619B8048" FromRole="PROVEEDOR" ToRole="COMPRA" />
-          <NavigationProperty Name="PRODUCTOes" Relationship="Self.FK__PRODUCTO__PROVEE__4D94879B" FromRole="PROVEEDOR" ToRole="PRODUCTO" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="Self.FK__PRODUCTO___PROVE__656C112C" FromRole="PROVEEDOR" ToRole="PRODUCTO_MOVIMIENTO" />
+          <NavigationProperty Name="COMPRAs" Relationship="BD_DONJUANModel.FK__COMPRA__PROVEEDO__619B8048" FromRole="PROVEEDOR" ToRole="COMPRA" />
+          <NavigationProperty Name="PRODUCTOes" Relationship="BD_DONJUANModel.FK__PRODUCTO__PROVEE__607251E5" FromRole="PROVEEDOR" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PROVE__4C6B5938" FromRole="PROVEEDOR" ToRole="PRODUCTO_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="PUESTO">
           <Key>
@@ -694,7 +781,7 @@
           <Property Name="PUESTO_ID" Type="Int32" Nullable="false" />
           <Property Name="TIPO_PUESTO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="SUELDO_BASE" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="EMPLEADOes" Relationship="Self.FK__EMPLEADO__PUESTO__38996AB5" FromRole="PUESTO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="BD_DONJUANModel.FK__EMPLEADO__PUESTO__38996AB5" FromRole="PUESTO" ToRole="EMPLEADO" />
         </EntityType>
         <EntityType Name="STOCK">
           <Key>
@@ -703,37 +790,61 @@
           <Property Name="STOCK_ID" Type="Int32" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__STOCK__PRODUCTO___5070F446" FromRole="STOCK" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__STOCK__PRODUCTO___5070F446" FromRole="STOCK" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="VENTA">
           <Key>
             <PropertyRef Name="VENTA_ID" />
           </Key>
-          <Property Name="VENTA_ID" Type="Int32" Nullable="false" />
+          <Property Name="VENTA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EMPLEADO_ID" Type="Int32" Nullable="false" />
           <Property Name="TOTAL" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
           <Property Name="DESCUENTO" Type="Boolean" />
-          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__VENTA__EMPLEADO___4316F928" FromRole="VENTA" ToRole="EMPLEADO" />
-          <NavigationProperty Name="FACTURACIONs" Relationship="Self.FK__FACTURACI__VENTA__45F365D3" FromRole="VENTA" ToRole="FACTURACION" />
-          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="Self.FK__VENTA_PRO__VENTA__534D60F1" FromRole="VENTA" ToRole="VENTA_PRODUCTO" />
+          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__VENTA__EMPLEADO___05D8E0BE" FromRole="VENTA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="FACTURACIONs" Relationship="BD_DONJUANModel.FK__FACTURACI__VENTA__37703C52" FromRole="VENTA" ToRole="FACTURACION" />
+          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__VENTA__3A4CA8FD" FromRole="VENTA" ToRole="VENTA_PRODUCTO" />
         </EntityType>
         <EntityType Name="VENTA_PRODUCTO">
           <Key>
             <PropertyRef Name="VENTA_PRODUCTO_ID" />
           </Key>
-          <Property Name="VENTA_PRODUCTO_ID" Type="Int32" Nullable="false" />
+          <Property Name="VENTA_PRODUCTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VENTA_ID" Type="Int32" Nullable="false" />
+          <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="PRECIO_ACTUAL" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK__VENTA_PRO__PRODU__5441852A" FromRole="VENTA_PRODUCTO" ToRole="PRODUCTO" />
-          <NavigationProperty Name="VENTA" Relationship="Self.FK__VENTA_PRO__VENTA__534D60F1" FromRole="VENTA_PRODUCTO" ToRole="VENTA" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__PRODU__3B40CD36" FromRole="VENTA_PRODUCTO" ToRole="PRODUCTO" />
+          <NavigationProperty Name="VENTA" Relationship="BD_DONJUANModel.FK__VENTA_PRO__VENTA__3A4CA8FD" FromRole="VENTA_PRODUCTO" ToRole="VENTA" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="CATEGORIA_ID" />
+          </Key>
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORIA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PRODUCTOes" Relationship="BD_DONJUANModel.FK_PRODUCTO_CATEGORIA" FromRole="CATEGORIA" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="CLIENTE_ID" />
+          </Key>
+          <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTILISTA" Type="Boolean" />
+          <Property Name="RFC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_POSTAL" Type="Int32" />
+          <Property Name="CIUDAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CLIENTE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="FK__ASISTENCI__EMPLE__3B75D760">
-          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
+          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ASISTENCIA" Type="Self.ASISTENCIA" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.ASISTENCIA" Role="ASISTENCIA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EMPLEADO">
               <PropertyRef Name="EMPLEADO_ID" />
@@ -743,25 +854,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO__CATEGO__4CA06362">
-          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CATEGORIA">
-              <PropertyRef Name="CATEGORIA_ID" />
-            </Principal>
-            <Dependent Role="PRODUCTO">
-              <PropertyRef Name="CATEGORIA_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__COMPRA__PROVEEDO__619B8048">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
+          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.COMPRA" Role="COMPRA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROVEEDOR">
               <PropertyRef Name="PROVEEDOR_ID" />
@@ -771,9 +868,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___COMPR__66603565">
-          <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="1" />
-          <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+        <Association Name="FK__PRODUCTO___COMPR__4D5F7D71">
+          <End Type="BD_DONJUANModel.COMPRA" Role="COMPRA" Multiplicity="0..1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="COMPRA">
               <PropertyRef Name="COMPRA_ID" />
@@ -784,10 +881,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__EMPLEADO__PUESTO__38996AB5">
-          <End Role="PUESTO" Type="Self.PUESTO" Multiplicity="1">
+          <End Type="BD_DONJUANModel.PUESTO" Role="PUESTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PUESTO">
               <PropertyRef Name="PUESTO_ID" />
@@ -798,10 +895,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__NOMINA__EMPLEADO__3E52440B">
-          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
+          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="NOMINA" Type="Self.NOMINA" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.NOMINA" Role="NOMINA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EMPLEADO">
               <PropertyRef Name="EMPLEADO_ID" />
@@ -811,11 +908,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA__EMPLEADO___4316F928">
-          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
+        <Association Name="FK__VENTA__EMPLEADO___05D8E0BE">
+          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="VENTA" Type="Self.VENTA" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EMPLEADO">
               <PropertyRef Name="EMPLEADO_ID" />
@@ -825,11 +922,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FACTURACI__VENTA__45F365D3">
-          <End Role="VENTA" Type="Self.VENTA" Multiplicity="1">
+        <Association Name="FK__FACTURACI__VENTA__37703C52">
+          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="FACTURACION" Type="Self.FACTURACION" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.FACTURACION" Role="FACTURACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VENTA">
               <PropertyRef Name="VENTA_ID" />
@@ -840,10 +937,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__INVENTARI__PRODU__571DF1D5">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="INVENTARIO" Type="Self.INVENTARIO" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTO">
               <PropertyRef Name="PRODUCTO_ID" />
@@ -853,11 +950,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__5BE2A6F2">
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1">
+        <Association Name="FK__PEDIDO_RE__PEDID__40058253">
+          <End Type="BD_DONJUANModel.PEDIDO" Role="PEDIDO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="PEDIDO_RECIBIDO" Type="Self.PEDIDO_RECIBIDO" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO" Role="PEDIDO_RECIBIDO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO">
               <PropertyRef Name="PEDIDO_ID" />
@@ -867,9 +964,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PEDID__6754599E">
-          <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
-          <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+        <Association Name="FK__PRODUCTO___PEDID__4E53A1AA">
+          <End Type="BD_DONJUANModel.PEDIDO" Role="PEDIDO" Multiplicity="0..1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO">
               <PropertyRef Name="PEDIDO_ID" />
@@ -879,23 +976,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__5EBF139D">
-          <End Role="PEDIDO_RECIBIDO" Type="Self.PEDIDO_RECIBIDO" Multiplicity="1">
+        <Association Name="FK__PEDIDO_RE__PEDID__42E1EEFE">
+          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO" Role="PEDIDO_RECIBIDO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="PEDIDO_RECIBIDO_PRODCUTO" Type="Self.PEDIDO_RECIBIDO_PRODCUTO" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO_PRODUCTO" Role="PEDIDO_RECIBIDO_PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PEDIDO_RECIBIDO">
               <PropertyRef Name="PEDIDO_REC_ID" />
             </Principal>
-            <Dependent Role="PEDIDO_RECIBIDO_PRODCUTO">
+            <Dependent Role="PEDIDO_RECIBIDO_PRODUCTO">
               <PropertyRef Name="PEDIDO_REC_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PRODU__6477ECF3">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
-          <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+        <Association Name="FK__PRODUCTO___PRODU__4B7734FF">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="0..1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTO">
               <PropertyRef Name="PRODUCTO_ID" />
@@ -905,11 +1002,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO__PROVEE__4D94879B">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
+        <Association Name="FK__PRODUCTO__PROVEE__607251E5">
+          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROVEEDOR">
               <PropertyRef Name="PROVEEDOR_ID" />
@@ -920,10 +1017,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__STOCK__PRODUCTO___5070F446">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.STOCK" Role="STOCK" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTO">
               <PropertyRef Name="PRODUCTO_ID" />
@@ -933,11 +1030,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA_PRO__PRODU__5441852A">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
+        <Association Name="FK__VENTA_PRO__PRODU__3B40CD36">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="VENTA_PRODUCTO" Type="Self.VENTA_PRODUCTO" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.VENTA_PRODUCTO" Role="VENTA_PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTO">
               <PropertyRef Name="PRODUCTO_ID" />
@@ -947,9 +1044,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PROVE__656C112C">
-          <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
-          <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+        <Association Name="FK__PRODUCTO___PROVE__4C6B5938">
+          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROVEEDOR">
               <PropertyRef Name="PROVEEDOR_ID" />
@@ -959,11 +1056,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA_PRO__VENTA__534D60F1">
-          <End Role="VENTA" Type="Self.VENTA" Multiplicity="1">
+        <Association Name="FK__VENTA_PRO__VENTA__3A4CA8FD">
+          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="VENTA_PRODUCTO" Type="Self.VENTA_PRODUCTO" Multiplicity="*" />
+          <End Type="BD_DONJUANModel.VENTA_PRODUCTO" Role="VENTA_PRODUCTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VENTA">
               <PropertyRef Name="VENTA_ID" />
@@ -973,98 +1070,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BD_DONJUANEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ASISTENCIAs" EntityType="Self.ASISTENCIA" />
-          <EntitySet Name="CATEGORIAs" EntityType="Self.CATEGORIA" />
-          <EntitySet Name="CLIENTEs" EntityType="Self.CLIENTE" />
-          <EntitySet Name="COMPRAs" EntityType="Self.COMPRA" />
-          <EntitySet Name="EMPLEADOes" EntityType="Self.EMPLEADO" />
-          <EntitySet Name="FACTURACIONs" EntityType="Self.FACTURACION" />
-          <EntitySet Name="INVENTARIOs" EntityType="Self.INVENTARIO" />
-          <EntitySet Name="NOMINAs" EntityType="Self.NOMINA" />
-          <EntitySet Name="PEDIDOes" EntityType="Self.PEDIDO" />
-          <EntitySet Name="PEDIDO_RECIBIDO" EntityType="Self.PEDIDO_RECIBIDO" />
-          <EntitySet Name="PEDIDO_RECIBIDO_PRODCUTO" EntityType="Self.PEDIDO_RECIBIDO_PRODCUTO" />
-          <EntitySet Name="PRODUCTOes" EntityType="Self.PRODUCTO" />
-          <EntitySet Name="PRODUCTO_MOVIMIENTO" EntityType="Self.PRODUCTO_MOVIMIENTO" />
-          <EntitySet Name="PROVEEDORs" EntityType="Self.PROVEEDOR" />
-          <EntitySet Name="PUESTOes" EntityType="Self.PUESTO" />
-          <EntitySet Name="STOCKs" EntityType="Self.STOCK" />
-          <EntitySet Name="VENTAs" EntityType="Self.VENTA" />
-          <EntitySet Name="VENTA_PRODUCTO" EntityType="Self.VENTA_PRODUCTO" />
-          <AssociationSet Name="FK__ASISTENCI__EMPLE__3B75D760" Association="Self.FK__ASISTENCI__EMPLE__3B75D760">
-            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
-            <End Role="ASISTENCIA" EntitySet="ASISTENCIAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO__CATEGO__4CA06362" Association="Self.FK__PRODUCTO__CATEGO__4CA06362">
-            <End Role="CATEGORIA" EntitySet="CATEGORIAs" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__COMPRA__PROVEEDO__619B8048" Association="Self.FK__COMPRA__PROVEEDO__619B8048">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
-            <End Role="COMPRA" EntitySet="COMPRAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___COMPR__66603565" Association="Self.FK__PRODUCTO___COMPR__66603565">
-            <End Role="COMPRA" EntitySet="COMPRAs" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EMPLEADO__PUESTO__38996AB5" Association="Self.FK__EMPLEADO__PUESTO__38996AB5">
-            <End Role="PUESTO" EntitySet="PUESTOes" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__NOMINA__EMPLEADO__3E52440B" Association="Self.FK__NOMINA__EMPLEADO__3E52440B">
-            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
-            <End Role="NOMINA" EntitySet="NOMINAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VENTA__EMPLEADO___4316F928" Association="Self.FK__VENTA__EMPLEADO___4316F928">
-            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
-            <End Role="VENTA" EntitySet="VENTAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FACTURACI__VENTA__45F365D3" Association="Self.FK__FACTURACI__VENTA__45F365D3">
-            <End Role="VENTA" EntitySet="VENTAs" />
-            <End Role="FACTURACION" EntitySet="FACTURACIONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__PRODU__571DF1D5" Association="Self.FK__INVENTARI__PRODU__571DF1D5">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="INVENTARIO" EntitySet="INVENTARIOs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__5BE2A6F2" Association="Self.FK__PEDIDO_RE__PEDID__5BE2A6F2">
-            <End Role="PEDIDO" EntitySet="PEDIDOes" />
-            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PEDID__6754599E" Association="Self.FK__PRODUCTO___PEDID__6754599E">
-            <End Role="PEDIDO" EntitySet="PEDIDOes" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__5EBF139D" Association="Self.FK__PEDIDO_RE__PEDID__5EBF139D">
-            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
-            <End Role="PEDIDO_RECIBIDO_PRODCUTO" EntitySet="PEDIDO_RECIBIDO_PRODCUTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PRODU__6477ECF3" Association="Self.FK__PRODUCTO___PRODU__6477ECF3">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO__PROVEE__4D94879B" Association="Self.FK__PRODUCTO__PROVEE__4D94879B">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__STOCK__PRODUCTO___5070F446" Association="Self.FK__STOCK__PRODUCTO___5070F446">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="STOCK" EntitySet="STOCKs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__PRODU__5441852A" Association="Self.FK__VENTA_PRO__PRODU__5441852A">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PROVE__656C112C" Association="Self.FK__PRODUCTO___PROVE__656C112C">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__VENTA__534D60F1" Association="Self.FK__VENTA_PRO__VENTA__534D60F1">
-            <End Role="VENTA" EntitySet="VENTAs" />
-            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
-          </AssociationSet>
-        </EntityContainer>
+        <Association Name="FK_PRODUCTO_CATEGORIA">
+          <End Type="BD_DONJUANModel.CATEGORIA" Role="CATEGORIA" Multiplicity="1" />
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="CATEGORIA_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="CATEGORIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1074,11 +1091,170 @@
           <EntitySetMapping Name="ASISTENCIAs">
             <EntityTypeMapping TypeName="BD_DONJUANModel.ASISTENCIA">
               <MappingFragment StoreEntitySet="ASISTENCIA">
-                <ScalarProperty Name="ASISTENCIA_ID" ColumnName="ASISTENCIA_ID" />
-                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="HORA_ENTRADA" ColumnName="HORA_ENTRADA" />
                 <ScalarProperty Name="HORA_SALIDA" ColumnName="HORA_SALIDA" />
+                <ScalarProperty Name="HORA_ENTRADA" ColumnName="HORA_ENTRADA" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
+                <ScalarProperty Name="ASISTENCIA_ID" ColumnName="ASISTENCIA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPRAs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.COMPRA">
+              <MappingFragment StoreEntitySet="COMPRA">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
+                <ScalarProperty Name="COMPRA_ID" ColumnName="COMPRA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADOes">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.EMPLEADO">
+              <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PUESTO_ID" ColumnName="PUESTO_ID" />
+                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURACIONs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.FACTURACION">
+              <MappingFragment StoreEntitySet="FACTURACION">
+                <ScalarProperty Name="CLIENTE_ID" ColumnName="CLIENTE_ID" />
+                <ScalarProperty Name="VENTA_ID" ColumnName="VENTA_ID" />
+                <ScalarProperty Name="FACTURACION_ID" ColumnName="FACTURACION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INVENTARIOs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.INVENTARIO">
+              <MappingFragment StoreEntitySet="INVENTARIO">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
+                <ScalarProperty Name="INVENTARIO_ID" ColumnName="INVENTARIO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NOMINAs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.NOMINA">
+              <MappingFragment StoreEntitySet="NOMINA">
+                <ScalarProperty Name="BONO" ColumnName="BONO" />
+                <ScalarProperty Name="SUELDO_TOTAL" ColumnName="SUELDO_TOTAL" />
+                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
+                <ScalarProperty Name="NOMINA_ID" ColumnName="NOMINA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDOes">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.PEDIDO">
+              <MappingFragment StoreEntitySet="PEDIDO">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="PEDIDO_ID" ColumnName="PEDIDO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDO_RECIBIDO">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.PEDIDO_RECIBIDO">
+              <MappingFragment StoreEntitySet="PEDIDO_RECIBIDO">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="PEDIDO_ID" ColumnName="PEDIDO_ID" />
+                <ScalarProperty Name="PEDIDO_REC_ID" ColumnName="PEDIDO_REC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PEDIDO_RECIBIDO_PRODUCTO">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.PEDIDO_RECIBIDO_PRODUCTO">
+              <MappingFragment StoreEntitySet="PEDIDO_RECIBIDO_PRODUCTO">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
+                <ScalarProperty Name="PEDIDO_REC_ID" ColumnName="PEDIDO_REC_ID" />
+                <ScalarProperty Name="PEDIDO_REC_PRODUCTO_ID" ColumnName="PEDIDO_REC_PRODUCTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTOes">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="UNIDAD" ColumnName="UNIDAD" />
+                <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
+                <ScalarProperty Name="CATEGORIA_ID" ColumnName="CATEGORIA_ID" />
+                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO_MOVIMIENTO">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.PRODUCTO_MOVIMIENTO">
+              <MappingFragment StoreEntitySet="PRODUCTO_MOVIMIENTO">
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PEDIDO_ID" ColumnName="PEDIDO_ID" />
+                <ScalarProperty Name="COMPRA_ID" ColumnName="COMPRA_ID" />
+                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
+                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
+                <ScalarProperty Name="PRODUCTO_MOVIMIENTO_ID" ColumnName="PRODUCTO_MOVIMIENTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVEEDORs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.PROVEEDOR">
+              <MappingFragment StoreEntitySet="PROVEEDOR">
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUESTOes">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.PUESTO">
+              <MappingFragment StoreEntitySet="PUESTO">
+                <ScalarProperty Name="SUELDO_BASE" ColumnName="SUELDO_BASE" />
+                <ScalarProperty Name="TIPO_PUESTO" ColumnName="TIPO_PUESTO" />
+                <ScalarProperty Name="PUESTO_ID" ColumnName="PUESTO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOCKs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.STOCK">
+              <MappingFragment StoreEntitySet="STOCK">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
+                <ScalarProperty Name="STOCK_ID" ColumnName="STOCK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTAs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.VENTA">
+              <MappingFragment StoreEntitySet="VENTA">
+                <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
+                <ScalarProperty Name="VENTA_ID" ColumnName="VENTA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTA_PRODUCTO">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.VENTA_PRODUCTO">
+              <MappingFragment StoreEntitySet="VENTA_PRODUCTO">
+                <ScalarProperty Name="PRECIO_ACTUAL" ColumnName="PRECIO_ACTUAL" />
+                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="VENTA_ID" ColumnName="VENTA_ID" />
+                <ScalarProperty Name="VENTA_PRODUCTO_ID" ColumnName="VENTA_PRODUCTO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1094,172 +1270,15 @@
             <EntityTypeMapping TypeName="BD_DONJUANModel.CLIENTE">
               <MappingFragment StoreEntitySet="CLIENTE">
                 <ScalarProperty Name="CLIENTE_ID" ColumnName="CLIENTE_ID" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="ESTILISTA" ColumnName="ESTILISTA" />
-                <ScalarProperty Name="RFC" ColumnName="RFC" />
-                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-                <ScalarProperty Name="CODIGO_POSTAL" ColumnName="CODIGO_POSTAL" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMPRAs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.COMPRA">
-              <MappingFragment StoreEntitySet="COMPRA">
-                <ScalarProperty Name="COMPRA_ID" ColumnName="COMPRA_ID" />
-                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
-                <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EMPLEADOes">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.EMPLEADO">
-              <MappingFragment StoreEntitySet="EMPLEADO">
-                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
-                <ScalarProperty Name="PUESTO_ID" ColumnName="PUESTO_ID" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="CODIGO_POSTAL" ColumnName="CODIGO_POSTAL" />
                 <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FACTURACIONs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.FACTURACION">
-              <MappingFragment StoreEntitySet="FACTURACION">
-                <ScalarProperty Name="FACTURACION_ID" ColumnName="FACTURACION_ID" />
-                <ScalarProperty Name="VENTA_ID" ColumnName="VENTA_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="INVENTARIOs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.INVENTARIO">
-              <MappingFragment StoreEntitySet="INVENTARIO">
-                <ScalarProperty Name="INVENTARIO_ID" ColumnName="INVENTARIO_ID" />
-                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="NOMINAs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.NOMINA">
-              <MappingFragment StoreEntitySet="NOMINA">
-                <ScalarProperty Name="NOMINA_ID" ColumnName="NOMINA_ID" />
-                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
-                <ScalarProperty Name="SUELDO_TOTAL" ColumnName="SUELDO_TOTAL" />
-                <ScalarProperty Name="BONO" ColumnName="BONO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PEDIDOes">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.PEDIDO">
-              <MappingFragment StoreEntitySet="PEDIDO">
-                <ScalarProperty Name="PEDIDO_ID" ColumnName="PEDIDO_ID" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PEDIDO_RECIBIDO">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.PEDIDO_RECIBIDO">
-              <MappingFragment StoreEntitySet="PEDIDO_RECIBIDO">
-                <ScalarProperty Name="PEDIDO_REC_ID" ColumnName="PEDIDO_REC_ID" />
-                <ScalarProperty Name="PEDIDO_ID" ColumnName="PEDIDO_ID" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PEDIDO_RECIBIDO_PRODCUTO">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.PEDIDO_RECIBIDO_PRODCUTO">
-              <MappingFragment StoreEntitySet="PEDIDO_RECIBIDO_PRODCUTO">
-                <ScalarProperty Name="PEDIDO_REC_PRODCUTO_ID" ColumnName="PEDIDO_REC_PRODCUTO_ID" />
-                <ScalarProperty Name="PEDIDO_REC_ID" ColumnName="PEDIDO_REC_ID" />
-                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PRODUCTOes">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.PRODUCTO">
-              <MappingFragment StoreEntitySet="PRODUCTO">
-                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
-                <ScalarProperty Name="CATEGORIA_ID" ColumnName="CATEGORIA_ID" />
-                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
-                <ScalarProperty Name="COSTO" ColumnName="COSTO" />
-                <ScalarProperty Name="UNIDAD" ColumnName="UNIDAD" />
-                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PRODUCTO_MOVIMIENTO">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.PRODUCTO_MOVIMIENTO">
-              <MappingFragment StoreEntitySet="PRODUCTO_MOVIMIENTO">
-                <ScalarProperty Name="PRODUCTO_MOVIMIENTO_ID" ColumnName="PRODUCTO_MOVIMIENTO_ID" />
-                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
-                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
-                <ScalarProperty Name="COMPRA_ID" ColumnName="COMPRA_ID" />
-                <ScalarProperty Name="PEDIDO_ID" ColumnName="PEDIDO_ID" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PROVEEDORs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.PROVEEDOR">
-              <MappingFragment StoreEntitySet="PROVEEDOR">
-                <ScalarProperty Name="PROVEEDOR_ID" ColumnName="PROVEEDOR_ID" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
                 <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="ESTILISTA" ColumnName="ESTILISTA" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PUESTOes">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.PUESTO">
-              <MappingFragment StoreEntitySet="PUESTO">
-                <ScalarProperty Name="PUESTO_ID" ColumnName="PUESTO_ID" />
-                <ScalarProperty Name="TIPO_PUESTO" ColumnName="TIPO_PUESTO" />
-                <ScalarProperty Name="SUELDO_BASE" ColumnName="SUELDO_BASE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STOCKs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.STOCK">
-              <MappingFragment StoreEntitySet="STOCK">
-                <ScalarProperty Name="STOCK_ID" ColumnName="STOCK_ID" />
-                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VENTAs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.VENTA">
-              <MappingFragment StoreEntitySet="VENTA">
-                <ScalarProperty Name="VENTA_ID" ColumnName="VENTA_ID" />
-                <ScalarProperty Name="EMPLEADO_ID" ColumnName="EMPLEADO_ID" />
-                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VENTA_PRODUCTO">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.VENTA_PRODUCTO">
-              <MappingFragment StoreEntitySet="VENTA_PRODUCTO">
-                <ScalarProperty Name="VENTA_PRODUCTO_ID" ColumnName="VENTA_PRODUCTO_ID" />
-                <ScalarProperty Name="VENTA_ID" ColumnName="VENTA_ID" />
-                <ScalarProperty Name="PRODUCTO_ID" ColumnName="PRODUCTO_ID" />
-                <ScalarProperty Name="PRECIO_ACTUAL" ColumnName="PRECIO_ACTUAL" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

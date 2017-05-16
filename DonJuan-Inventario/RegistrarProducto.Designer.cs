@@ -52,6 +52,8 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.ErrorP1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblInitialInv = new System.Windows.Forms.Label();
+            this.txtInitialInv = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +111,7 @@
             // btnSalir
             // 
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSalir.Location = new System.Drawing.Point(447, 467);
+            this.btnSalir.Location = new System.Drawing.Point(446, 492);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(115, 40);
             this.btnSalir.TabIndex = 47;
@@ -120,7 +122,7 @@
             // btnRegistrarProducto
             // 
             this.btnRegistrarProducto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRegistrarProducto.Location = new System.Drawing.Point(80, 467);
+            this.btnRegistrarProducto.Location = new System.Drawing.Point(79, 492);
             this.btnRegistrarProducto.Name = "btnRegistrarProducto";
             this.btnRegistrarProducto.Size = new System.Drawing.Size(115, 40);
             this.btnRegistrarProducto.TabIndex = 46;
@@ -277,12 +279,32 @@
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
             // 
+            // lblInitialInv
+            // 
+            this.lblInitialInv.AutoSize = true;
+            this.lblInitialInv.BackColor = System.Drawing.Color.Transparent;
+            this.lblInitialInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInitialInv.Location = new System.Drawing.Point(54, 441);
+            this.lblInitialInv.Name = "lblInitialInv";
+            this.lblInitialInv.Size = new System.Drawing.Size(127, 20);
+            this.lblInitialInv.TabIndex = 62;
+            this.lblInitialInv.Text = "Inventario Inicial:";
+            // 
+            // txtInitialInv
+            // 
+            this.txtInitialInv.Location = new System.Drawing.Point(196, 441);
+            this.txtInitialInv.Name = "txtInitialInv";
+            this.txtInitialInv.Size = new System.Drawing.Size(69, 20);
+            this.txtInitialInv.TabIndex = 61;
+            // 
             // RegistrarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(656, 544);
+            this.Controls.Add(this.lblInitialInv);
+            this.Controls.Add(this.txtInitialInv);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtPrecio);
@@ -343,5 +365,7 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.ErrorProvider ErrorP1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblInitialInv;
+        private System.Windows.Forms.TextBox txtInitialInv;
     }
 }

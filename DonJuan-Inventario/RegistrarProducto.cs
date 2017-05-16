@@ -61,6 +61,16 @@ namespace DonJuan_Inventario
                 using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
                 {
                     donJuan.PRODUCTOes.Add(producto);
+
+                    var inventoryItem = new INVENTARIO();
+
+                    int initialInv;
+
+                    inventoryItem.PRODUCTO = producto;
+                    inventoryItem.CANTIDAD = Int32.TryParse(txtInitialInv.Text, out initialInv) ? initialInv : 0;
+
+                    donJuan.INVENTARIOs.Add(inventoryItem);
+
                     donJuan.SaveChanges();
                     MessageBox.Show("Se agrego una Producto!");
                     txtProductoID.Clear();

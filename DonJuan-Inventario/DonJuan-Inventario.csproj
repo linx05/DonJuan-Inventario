@@ -66,6 +66,12 @@
     <Compile Include="COMPRA.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDO_RECIBIDO_PRODUCTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="SQLC.cs" />
     <Compile Include="ConsultarCompras.cs">
       <SubType>Form</SubType>
@@ -134,9 +140,6 @@
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
     <Compile Include="PEDIDO_RECIBIDO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PEDIDO_RECIBIDO_PRODCUTO.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
     <Compile Include="PRODUCTO.cs">

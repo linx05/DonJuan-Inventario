@@ -20,7 +20,7 @@ namespace DonJuan_Inventario
 
             using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
             {
-                productos = donJuan.INVENTARIOs.ToList();
+                productos = donJuan.INVENTARIOs.Include("PRODUCTO").ToList();
                 dtginventario.DataSource = productos;
             }
         }
