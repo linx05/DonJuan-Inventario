@@ -18,6 +18,7 @@ namespace DonJuan_Inventario
         public BD_DONJUANEntities()
             : base("name=BD_DONJUANEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

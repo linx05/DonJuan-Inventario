@@ -49,9 +49,6 @@
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.dtgProducto = new System.Windows.Forms.DataGridView();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -230,7 +227,7 @@
             // 
             this.txtSubTotal.Location = new System.Drawing.Point(131, 148);
             this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.Size = new System.Drawing.Size(132, 20);
+            this.txtSubTotal.Size = new System.Drawing.Size(144, 20);
             this.txtSubTotal.TabIndex = 4;
             this.txtSubTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubTotal_KeyPress);
             // 
@@ -247,10 +244,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDProducto,
-            this.NombreProducto,
-            this.Cantidad});
             this.dtgProducto.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtgProducto.EnableHeadersVisualStyles = false;
             this.dtgProducto.Location = new System.Drawing.Point(410, 103);
@@ -262,24 +255,6 @@
             this.dtgProducto.Size = new System.Drawing.Size(730, 242);
             this.dtgProducto.StandardTab = true;
             this.dtgProducto.TabIndex = 54;
-            // 
-            // IDProducto
-            // 
-            this.IDProducto.HeaderText = "ID";
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.HeaderText = "Producto";
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
             // 
             // txtCantidad
             // 
@@ -299,6 +274,7 @@
             this.btnAgregar.TabIndex = 57;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEliminar
             // 
@@ -311,6 +287,7 @@
             this.btnEliminar.TabIndex = 58;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // ErrorP1
             // 
@@ -394,9 +371,6 @@
         private System.Windows.Forms.TextBox txtSubTotal;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.DataGridView dtgProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.NumericUpDown txtCantidad;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;

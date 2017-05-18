@@ -57,6 +57,9 @@
     <Compile Include="ASISTENCIA.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CATEGORIA.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
@@ -66,9 +69,9 @@
     <Compile Include="COMPRA.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="database_firewall_rules.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DBConfiguration.cs" />
+    <Compile Include="Models\Inventario.cs" />
+    <Compile Include="Models\ProductoMovimiento.cs" />
     <Compile Include="PEDIDO_RECIBIDO_PRODUCTO.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
@@ -262,5 +265,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

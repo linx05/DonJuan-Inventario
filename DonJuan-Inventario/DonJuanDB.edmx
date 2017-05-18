@@ -183,8 +183,6 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="PRECIO_ACTUAL" Type="money" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BD_DONJUAN.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <Association Name="FK__ASISTENCI__EMPLE__3B75D760">
           <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -536,7 +534,7 @@ warning 6002: The table/view 'BD_DONJUAN.sys.database_firewall_rules' does not h
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BD_DONJUANModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="BD_DONJUANEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BD_DONJUANEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="ASISTENCIAs" EntityType="BD_DONJUANModel.ASISTENCIA" />
           <EntitySet Name="COMPRAs" EntityType="BD_DONJUANModel.COMPRA" />
           <EntitySet Name="EMPLEADOes" EntityType="BD_DONJUANModel.EMPLEADO" />

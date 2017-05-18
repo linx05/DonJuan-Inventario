@@ -27,9 +27,11 @@ namespace DonJuan_Inventario
         }
         private void listarCompras()
         {
-            //var lista1 = Conectar.PROVEEDORs.ToList();
-            var lista = Conectar.COMPRAs.ToList();
-            dtgCompras.DataSource = lista;
+            using (var donJuan = new BD_DONJUANEntities())
+            {
+                var lista = donJuan.COMPRAs.ToList();
+                dtgCompras.DataSource = lista;
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
