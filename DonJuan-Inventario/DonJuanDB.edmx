@@ -73,7 +73,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Key>
             <PropertyRef Name="INVENTARIO_ID" />
           </Key>
-          <Property Name="INVENTARIO_ID" Type="int" Nullable="false" />
+          <Property Name="INVENTARIO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="CANTIDAD" Type="int" Nullable="false" />
         </EntityType>
@@ -239,7 +239,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INVENTARI__PRODU__571DF1D5">
+        <Association Name="FK__INVENTARI__PRODU__662B2B3B">
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -473,7 +473,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             <End Role="VENTA" EntitySet="VENTA" />
             <End Role="FACTURACION" EntitySet="FACTURACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__PRODU__571DF1D5" Association="Self.FK__INVENTARI__PRODU__571DF1D5">
+          <AssociationSet Name="FK__INVENTARI__PRODU__662B2B3B" Association="Self.FK__INVENTARI__PRODU__662B2B3B">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="INVENTARIO" EntitySet="INVENTARIO" />
           </AssociationSet>
