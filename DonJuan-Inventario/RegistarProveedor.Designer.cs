@@ -47,6 +47,7 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.ErrorP1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,23 +64,29 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.BackgroundImage = global::DonJuan_Inventario.Properties.Resources.icono_flecha_derecha;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSalir.Location = new System.Drawing.Point(463, 397);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(115, 40);
             this.btnSalir.TabIndex = 8;
-            this.btnSalir.Text = "Salir";
+            this.toolTip1.SetToolTip(this.btnSalir, "Salir");
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnRegistrarProveedor
             // 
+            this.btnRegistrarProveedor.BackgroundImage = global::DonJuan_Inventario.Properties.Resources.CONSTANCIA;
+            this.btnRegistrarProveedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRegistrarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistrarProveedor.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRegistrarProveedor.Location = new System.Drawing.Point(152, 397);
             this.btnRegistrarProveedor.Name = "btnRegistrarProveedor";
             this.btnRegistrarProveedor.Size = new System.Drawing.Size(115, 40);
             this.btnRegistrarProveedor.TabIndex = 7;
-            this.btnRegistrarProveedor.Text = "Registrar";
+            this.toolTip1.SetToolTip(this.btnRegistrarProveedor, "Registrar");
             this.btnRegistrarProveedor.UseVisualStyleBackColor = true;
             this.btnRegistrarProveedor.Click += new System.EventHandler(this.btnRegistrarProveedor_Click);
             // 
@@ -87,6 +94,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label6.Location = new System.Drawing.Point(112, 331);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 20);
@@ -97,6 +105,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(127, 280);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 20);
@@ -108,6 +117,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(98, 236);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
@@ -119,6 +129,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(94, 194);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
@@ -130,6 +141,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(3, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 20);
@@ -141,7 +153,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 103);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(42, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 20);
             this.label1.TabIndex = 21;
@@ -264,5 +277,6 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.ErrorProvider ErrorP1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

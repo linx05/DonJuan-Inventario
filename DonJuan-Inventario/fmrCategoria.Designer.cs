@@ -36,8 +36,9 @@
             this.txtNomCategoria = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnRegistrarCategoria = new System.Windows.Forms.Button();
             this.ErrorP1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnRegistrarCategoria = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,6 +49,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(34, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 20);
@@ -59,6 +61,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(34, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 20);
@@ -93,29 +96,35 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.BackgroundImage = global::DonJuan_Inventario.Properties.Resources.icono_flecha_derecha;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSalir.Location = new System.Drawing.Point(378, 164);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(115, 40);
             this.btnSalir.TabIndex = 40;
-            this.btnSalir.Text = "Salir";
+            this.toolTip1.SetToolTip(this.btnSalir, "Salir");
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnRegistrarCategoria
-            // 
-            this.btnRegistrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRegistrarCategoria.Location = new System.Drawing.Point(70, 164);
-            this.btnRegistrarCategoria.Name = "btnRegistrarCategoria";
-            this.btnRegistrarCategoria.Size = new System.Drawing.Size(115, 40);
-            this.btnRegistrarCategoria.TabIndex = 39;
-            this.btnRegistrarCategoria.Text = "Registrar";
-            this.btnRegistrarCategoria.UseVisualStyleBackColor = true;
-            this.btnRegistrarCategoria.Click += new System.EventHandler(this.btnRegistrarCategoria_Click);
             // 
             // ErrorP1
             // 
             this.ErrorP1.ContainerControl = this;
+            // 
+            // btnRegistrarCategoria
+            // 
+            this.btnRegistrarCategoria.BackgroundImage = global::DonJuan_Inventario.Properties.Resources.CONSTANCIA;
+            this.btnRegistrarCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRegistrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegistrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRegistrarCategoria.Location = new System.Drawing.Point(83, 164);
+            this.btnRegistrarCategoria.Name = "btnRegistrarCategoria";
+            this.btnRegistrarCategoria.Size = new System.Drawing.Size(115, 40);
+            this.btnRegistrarCategoria.TabIndex = 39;
+            this.toolTip1.SetToolTip(this.btnRegistrarCategoria, "Registrar");
+            this.btnRegistrarCategoria.UseVisualStyleBackColor = true;
+            this.btnRegistrarCategoria.Click += new System.EventHandler(this.btnRegistrarCategoria_Click);
             // 
             // pictureBox1
             // 
@@ -168,5 +177,6 @@
         private System.Windows.Forms.Button btnRegistrarCategoria;
         private System.Windows.Forms.ErrorProvider ErrorP1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
