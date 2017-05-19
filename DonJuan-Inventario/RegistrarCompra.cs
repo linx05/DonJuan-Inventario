@@ -12,9 +12,9 @@ namespace DonJuan_Inventario
 {
     public partial class RegistrarCompra : BaseForm
     {
-        List<PRODUCTO> todosProductos = new List<PRODUCTO>();
-        List<PRODUCTO> productosDisponibles = new List<PRODUCTO>();
-        List<PRODUCTO_MOVIMIENTO> productosCompra = new List<PRODUCTO_MOVIMIENTO>();
+        List<PRODUCTO> todosProductos;
+        List<PRODUCTO> productosDisponibles;
+        List<PRODUCTO_MOVIMIENTO> productosCompra;
         SQLC con = new SQLC();
         Validaciones V = new Validaciones();
         string product= "";
@@ -23,7 +23,7 @@ namespace DonJuan_Inventario
         public RegistrarCompra()
         {
             InitializeComponent();
-
+            init();
             //BindingSource source = new BindingSource();
             //source.DataSource = productosCompra;
             //dtgProducto.DataSource = source;
@@ -31,9 +31,11 @@ namespace DonJuan_Inventario
 
         public void init ()
         {
-            List<PRODUCTO_MOVIMIENTO> productosCompra = new List<PRODUCTO_MOVIMIENTO>();
+            productosCompra = new List<PRODUCTO_MOVIMIENTO>();
+            todosProductos = new List<PRODUCTO>();
+            productosDisponibles = new List<PRODUCTO>();
             txtCompraID.Clear();
-            txtEstado.Clear();
+            txtFactura.Clear();
             txtSubTotal.Clear();
             txtTotal.Clear();
             cmbProducto.Focus();
@@ -60,14 +62,14 @@ namespace DonJuan_Inventario
                 ShowErrorBox("No ha seleccionado productos!");
                 return;
             }
-            V.BRegistrarCompra(txtSubTotal, txtTotal, txtEstado, ErrorP1);
-            if (V.VRegistrarCompra(txtSubTotal, txtTotal, txtEstado, ErrorP1))
+            V.BRegistrarCompra(txtSubTotal, txtTotal, txtFactura, ErrorP1);
+            if (V.VRegistrarCompra(txtSubTotal, txtTotal, txtFactura, ErrorP1))
             {
                 compra.COMPRA_ID = Convert.ToInt32(txtCompraID.Text);
                 compra.SUBTOTAL = Convert.ToDecimal(txtSubTotal.Text);
                 compra.TOTAL = Convert.ToDecimal(txtTotal.Text);
                 compra.FECHA = Convert.ToDateTime(dtpFecha.Text);
-                compra.ESTADO = txtEstado.Text;
+                compra.FACTURA = txtFactura.Text;
                 compra.PROVEEDOR_ID = Convert.ToInt32(provee);
                 compra.PRODUCTO_MOVIMIENTO = productosCompra;
 

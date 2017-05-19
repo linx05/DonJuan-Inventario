@@ -12,9 +12,10 @@ namespace DonJuan_Inventario
 {
     public partial class RegistrarProducto : Form
     {
-        BD_DONJUANEntities Conectar = new BD_DONJUANEntities();
         SQLC con = new SQLC();
         Validaciones V = new Validaciones();
+        List<CATEGORIA> categorias;
+        List<PROVEEDOR> proveedores;
         string categ = "";
         string provee = "";
 
@@ -29,8 +30,11 @@ namespace DonJuan_Inventario
             ListarCategoria();
             ListarProveedores();
             cmbUnidad.Text = "Kilogramos";
-            categ = cmbCategoria.SelectedValue.ToString();
-            provee = cmbProveedor.SelectedValue.ToString();
+            if (proveedores.Count() > 0 && categorias.Count() > 0)
+            {
+                categ = cmbCategoria.SelectedValue.ToString();
+                provee = cmbProveedor.SelectedValue.ToString();
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -94,22 +98,29 @@ namespace DonJuan_Inventario
         }
         public void ListarCategoria()
         {
-            var lista = Conectar.CATEGORIAs.ToList();
-            if (lista.Count > 0)
+            using (var Conectar = new BD_DONJUANEntities())
             {
-                cmbCategoria.DataSource = lista;
-                cmbCategoria.DisplayMember = "NOMBRE";
-                cmbCategoria.ValueMember = "Categoria_ID";
+                categorias = Conectar.CATEGORIAs.ToList();
+                if (categorias.Count > 0)
+                {
+                    cmbCategoria.DataSource = categorias;
+                    cmbCategoria.DisplayMember = "NOMBRE";
+                    cmbCategoria.ValueMember = "CATEGORIA_ID";
+                }
             }
+            
         }
         private void ListarProveedores()
         {
-            var lista = Conectar.PROVEEDORs.ToList();
-            if (lista.Count > 0)
+            using (var Conectar = new BD_DONJUANEntities())
             {
-                cmbProveedor.DataSource = lista;
-                cmbProveedor.DisplayMember = "NOMBRE";
-                cmbProveedor.ValueMember = "Proveedor_ID";
+                proveedores = Conectar.PROVEEDORs.ToList();
+                if (proveedores.Count > 0)
+                {
+                    cmbProveedor.DataSource = proveedores;
+                    cmbProveedor.DisplayMember = "NOMBRE";
+                    cmbProveedor.ValueMember = "PROVEEDOR_ID";
+                }
             }
         }
 

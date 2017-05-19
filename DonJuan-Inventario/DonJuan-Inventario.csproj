@@ -70,9 +70,39 @@
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DBConfiguration.cs" />
+    <Compile Include="EMPLEADO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FACTURACION.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="INVENTARIO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\ProductoMovimiento.cs" />
+    <Compile Include="NOMINA.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PEDIDO_RECIBIDO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="PEDIDO_RECIBIDO_PRODUCTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTO_MOVIMIENTO.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROVEEDOR.cs">
+      <DependentUpon>DonJuanDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PUESTO.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
     <Compile Include="SQLC.cs" />
@@ -109,12 +139,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DonJuanDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EMPLEADO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FACTURACION.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="fmrCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,38 +151,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="INVENTARIO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="NOMINA.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PEDIDO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PEDIDO_RECIBIDO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PRODUCTO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PRODUCTO_MOVIMIENTO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PROVEEDOR.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PUESTO.cs">
-      <DependentUpon>DonJuanDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="RegistarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>

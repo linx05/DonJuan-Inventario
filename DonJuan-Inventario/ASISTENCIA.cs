@@ -17,8 +17,8 @@ namespace DonJuan_Inventario
         public int ASISTENCIA_ID { get; set; }
         public int EMPLEADO_ID { get; set; }
         public Nullable<System.DateTime> FECHA { get; set; }
-        public Nullable<System.DateTime> HORA_ENTRADA { get; set; }
-        public Nullable<System.DateTime> HORA_SALIDA { get; set; }
+        public Nullable<System.TimeSpan> HORA_ENTRADA { get; set; }
+        public Nullable<System.TimeSpan> HORA_SALIDA { get; set; }
     
         public virtual EMPLEADO EMPLEADO { get; set; }
     }

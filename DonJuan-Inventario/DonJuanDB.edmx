@@ -12,8 +12,8 @@
           <Property Name="ASISTENCIA_ID" Type="int" Nullable="false" />
           <Property Name="EMPLEADO_ID" Type="int" Nullable="false" />
           <Property Name="FECHA" Type="date" />
-          <Property Name="HORA_ENTRADA" Type="date" />
-          <Property Name="HORA_SALIDA" Type="date" />
+          <Property Name="HORA_ENTRADA" Type="time" Precision="7" />
+          <Property Name="HORA_SALIDA" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="CATEGORIA">
           <Key>
@@ -43,12 +43,13 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Key>
             <PropertyRef Name="COMPRA_ID" />
           </Key>
-          <Property Name="COMPRA_ID" Type="int" Nullable="false" />
+          <Property Name="COMPRA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PROVEEDOR_ID" Type="int" Nullable="false" />
           <Property Name="SUBTOTAL" Type="money" />
           <Property Name="TOTAL" Type="money" />
           <Property Name="ESTADO" Type="varchar" MaxLength="30" />
           <Property Name="FECHA" Type="date" />
+          <Property Name="FACTURA" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EMPLEADO">
           <Key>
@@ -115,7 +116,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Key>
             <PropertyRef Name="PRODUCTO_ID" />
           </Key>
-          <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
+          <Property Name="PRODUCTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CATEGORIA_ID" Type="int" Nullable="false" />
           <Property Name="PROVEEDOR_ID" Type="int" />
           <Property Name="NOMBRE" Type="varchar" MaxLength="30" />
@@ -129,7 +130,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             <PropertyRef Name="PRODUCTO_MOVIMIENTO_ID" />
           </Key>
           <Property Name="PRODUCTO_MOVIMIENTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PRODUCTO_ID" Type="int" />
+          <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="PROVEEDOR_ID" Type="int" />
           <Property Name="COMPRA_ID" Type="int" />
           <Property Name="PEDIDO_ID" Type="int" />
@@ -140,11 +141,11 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Key>
             <PropertyRef Name="PROVEEDOR_ID" />
           </Key>
-          <Property Name="PROVEEDOR_ID" Type="int" Nullable="false" />
+          <Property Name="PROVEEDOR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar" MaxLength="30" />
           <Property Name="DIRECCION" Type="varchar" MaxLength="50" />
           <Property Name="TELEFONO" Type="varchar" MaxLength="200" />
-          <Property Name="RFC" Type="varchar" MaxLength="12" />
+          <Property Name="RFC" Type="varchar" MaxLength="200" />
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="PUESTO">
@@ -159,7 +160,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Key>
             <PropertyRef Name="STOCK_ID" />
           </Key>
-          <Property Name="STOCK_ID" Type="int" Nullable="false" />
+          <Property Name="STOCK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="CANTIDAD" Type="int" Nullable="false" />
         </EntityType>
@@ -183,7 +184,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="PRODUCTO_ID" Type="int" Nullable="false" />
           <Property Name="PRECIO_ACTUAL" Type="money" />
         </EntityType>
-        <Association Name="FK__ASISTENCI__EMPLE__3B75D760">
+        <Association Name="FK__ASISTENCI__EMPLE__67DE6983">
           <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -197,7 +198,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__COMPRA__PROVEEDO__619B8048">
+        <Association Name="FK__COMPRA__PROVEEDO__41B8C09B">
           <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -211,7 +212,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EMPLEADO__PUESTO__38996AB5">
+        <Association Name="FK__EMPLEADO__PUESTO__318258D2">
           <End Role="PUESTO" Type="Self.PUESTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -225,7 +226,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FACTURACI__VENTA__37703C52">
+        <Association Name="FK__FACTURACI__VENTA__373B3228">
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -239,7 +240,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__INVENTARI__PRODU__662B2B3B">
+        <Association Name="FK__INVENTARI__PRODU__5F492382">
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -253,7 +254,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__NOMINA__EMPLEADO__3E52440B">
+        <Association Name="FK__NOMINA__EMPLEADO__3A179ED3">
           <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -267,7 +268,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__40058253">
+        <Association Name="FK__PEDIDO_RE__PEDID__467D75B8">
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -281,7 +282,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__42E1EEFE">
+        <Association Name="FK__PEDIDO_RE__PEDID__4959E263">
           <End Role="PEDIDO_RECIBIDO" Type="Self.PEDIDO_RECIBIDO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -295,7 +296,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___COMPR__4D5F7D71">
+        <Association Name="FK__PRODUCTO___COMPR__59904A2C">
           <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="0..1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -307,7 +308,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PEDID__4E53A1AA">
+        <Association Name="FK__PRODUCTO___PEDID__5A846E65">
           <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="0..1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -319,8 +320,8 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PRODU__4B7734FF">
-          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="0..1" />
+        <Association Name="FK__PRODUCTO___PRODU__5B78929E">
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTO">
@@ -331,7 +332,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO___PROVE__4C6B5938">
+        <Association Name="FK__PRODUCTO___PROVE__5C6CB6D7">
           <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
           <End Role="PRODUCTO_MOVIMIENTO" Type="Self.PRODUCTO_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -343,7 +344,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PRODUCTO__PROVEE__607251E5">
+        <Association Name="FK__PRODUCTO__PROVEE__4F12BBB9">
           <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -357,7 +358,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__STOCK__PRODUCTO___5070F446">
+        <Association Name="FK__STOCK__PRODUCTO___6501FCD8">
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -371,7 +372,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA__EMPLEADO___05D8E0BE">
+        <Association Name="FK__VENTA__EMPLEADO___345EC57D">
           <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -385,7 +386,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA_PRO__PRODU__3B40CD36">
+        <Association Name="FK__VENTA_PRO__PRODU__52E34C9D">
           <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -399,7 +400,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__VENTA_PRO__VENTA__3A4CA8FD">
+        <Association Name="FK__VENTA_PRO__VENTA__53D770D6">
           <End Role="VENTA" Type="Self.VENTA" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -457,71 +458,71 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
     [CLIENTE].[CLIENTE_ID] AS [CLIENTE_ID]
     FROM [dbo].[CLIENTE] AS [CLIENTE]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__ASISTENCI__EMPLE__3B75D760" Association="Self.FK__ASISTENCI__EMPLE__3B75D760">
+          <AssociationSet Name="FK__ASISTENCI__EMPLE__67DE6983" Association="Self.FK__ASISTENCI__EMPLE__67DE6983">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="ASISTENCIA" EntitySet="ASISTENCIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__COMPRA__PROVEEDO__619B8048" Association="Self.FK__COMPRA__PROVEEDO__619B8048">
+          <AssociationSet Name="FK__COMPRA__PROVEEDO__41B8C09B" Association="Self.FK__COMPRA__PROVEEDO__41B8C09B">
             <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
             <End Role="COMPRA" EntitySet="COMPRA" />
           </AssociationSet>
-          <AssociationSet Name="FK__EMPLEADO__PUESTO__38996AB5" Association="Self.FK__EMPLEADO__PUESTO__38996AB5">
+          <AssociationSet Name="FK__EMPLEADO__PUESTO__318258D2" Association="Self.FK__EMPLEADO__PUESTO__318258D2">
             <End Role="PUESTO" EntitySet="PUESTO" />
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
           </AssociationSet>
-          <AssociationSet Name="FK__FACTURACI__VENTA__37703C52" Association="Self.FK__FACTURACI__VENTA__37703C52">
+          <AssociationSet Name="FK__FACTURACI__VENTA__373B3228" Association="Self.FK__FACTURACI__VENTA__373B3228">
             <End Role="VENTA" EntitySet="VENTA" />
             <End Role="FACTURACION" EntitySet="FACTURACION" />
           </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__PRODU__662B2B3B" Association="Self.FK__INVENTARI__PRODU__662B2B3B">
+          <AssociationSet Name="FK__INVENTARI__PRODU__5F492382" Association="Self.FK__INVENTARI__PRODU__5F492382">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="INVENTARIO" EntitySet="INVENTARIO" />
           </AssociationSet>
-          <AssociationSet Name="FK__NOMINA__EMPLEADO__3E52440B" Association="Self.FK__NOMINA__EMPLEADO__3E52440B">
+          <AssociationSet Name="FK__NOMINA__EMPLEADO__3A179ED3" Association="Self.FK__NOMINA__EMPLEADO__3A179ED3">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="NOMINA" EntitySet="NOMINA" />
           </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__40058253" Association="Self.FK__PEDIDO_RE__PEDID__40058253">
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__467D75B8" Association="Self.FK__PEDIDO_RE__PEDID__467D75B8">
             <End Role="PEDIDO" EntitySet="PEDIDO" />
             <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__42E1EEFE" Association="Self.FK__PEDIDO_RE__PEDID__42E1EEFE">
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__4959E263" Association="Self.FK__PEDIDO_RE__PEDID__4959E263">
             <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
             <End Role="PEDIDO_RECIBIDO_PRODUCTO" EntitySet="PEDIDO_RECIBIDO_PRODUCTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___COMPR__4D5F7D71" Association="Self.FK__PRODUCTO___COMPR__4D5F7D71">
+          <AssociationSet Name="FK__PRODUCTO___COMPR__59904A2C" Association="Self.FK__PRODUCTO___COMPR__59904A2C">
             <End Role="COMPRA" EntitySet="COMPRA" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PEDID__4E53A1AA" Association="Self.FK__PRODUCTO___PEDID__4E53A1AA">
+          <AssociationSet Name="FK__PRODUCTO___PEDID__5A846E65" Association="Self.FK__PRODUCTO___PEDID__5A846E65">
             <End Role="PEDIDO" EntitySet="PEDIDO" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PRODU__4B7734FF" Association="Self.FK__PRODUCTO___PRODU__4B7734FF">
+          <AssociationSet Name="FK__PRODUCTO___PRODU__5B78929E" Association="Self.FK__PRODUCTO___PRODU__5B78929E">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PROVE__4C6B5938" Association="Self.FK__PRODUCTO___PROVE__4C6B5938">
+          <AssociationSet Name="FK__PRODUCTO___PROVE__5C6CB6D7" Association="Self.FK__PRODUCTO___PROVE__5C6CB6D7">
             <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
             <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO__PROVEE__607251E5" Association="Self.FK__PRODUCTO__PROVEE__607251E5">
+          <AssociationSet Name="FK__PRODUCTO__PROVEE__4F12BBB9" Association="Self.FK__PRODUCTO__PROVEE__4F12BBB9">
             <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__STOCK__PRODUCTO___5070F446" Association="Self.FK__STOCK__PRODUCTO___5070F446">
+          <AssociationSet Name="FK__STOCK__PRODUCTO___6501FCD8" Association="Self.FK__STOCK__PRODUCTO___6501FCD8">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="STOCK" EntitySet="STOCK" />
           </AssociationSet>
-          <AssociationSet Name="FK__VENTA__EMPLEADO___05D8E0BE" Association="Self.FK__VENTA__EMPLEADO___05D8E0BE">
+          <AssociationSet Name="FK__VENTA__EMPLEADO___345EC57D" Association="Self.FK__VENTA__EMPLEADO___345EC57D">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="VENTA" EntitySet="VENTA" />
           </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__PRODU__3B40CD36" Association="Self.FK__VENTA_PRO__PRODU__3B40CD36">
+          <AssociationSet Name="FK__VENTA_PRO__PRODU__52E34C9D" Association="Self.FK__VENTA_PRO__PRODU__52E34C9D">
             <End Role="PRODUCTO" EntitySet="PRODUCTO" />
             <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
           </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__VENTA__3A4CA8FD" Association="Self.FK__VENTA_PRO__VENTA__3A4CA8FD">
+          <AssociationSet Name="FK__VENTA_PRO__VENTA__53D770D6" Association="Self.FK__VENTA_PRO__VENTA__53D770D6">
             <End Role="VENTA" EntitySet="VENTA" />
             <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
           </AssociationSet>
@@ -536,6 +537,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
       <Schema Namespace="BD_DONJUANModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BD_DONJUANEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="ASISTENCIAs" EntityType="BD_DONJUANModel.ASISTENCIA" />
+          <EntitySet Name="CATEGORIAs" EntityType="BD_DONJUANModel.CATEGORIA" />
           <EntitySet Name="COMPRAs" EntityType="BD_DONJUANModel.COMPRA" />
           <EntitySet Name="EMPLEADOes" EntityType="BD_DONJUANModel.EMPLEADO" />
           <EntitySet Name="FACTURACIONs" EntityType="BD_DONJUANModel.FACTURACION" />
@@ -551,79 +553,78 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <EntitySet Name="STOCKs" EntityType="BD_DONJUANModel.STOCK" />
           <EntitySet Name="VENTAs" EntityType="BD_DONJUANModel.VENTA" />
           <EntitySet Name="VENTA_PRODUCTO" EntityType="BD_DONJUANModel.VENTA_PRODUCTO" />
-          <EntitySet Name="CATEGORIAs" EntityType="BD_DONJUANModel.CATEGORIA" />
           <EntitySet Name="CLIENTEs" EntityType="BD_DONJUANModel.CLIENTE" />
-          <AssociationSet Name="FK__ASISTENCI__EMPLE__3B75D760" Association="BD_DONJUANModel.FK__ASISTENCI__EMPLE__3B75D760">
+          <AssociationSet Name="FK__ASISTENCI__EMPLE__67DE6983" Association="BD_DONJUANModel.FK__ASISTENCI__EMPLE__67DE6983">
             <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
             <End Role="ASISTENCIA" EntitySet="ASISTENCIAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__COMPRA__PROVEEDO__619B8048" Association="BD_DONJUANModel.FK__COMPRA__PROVEEDO__619B8048">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
-            <End Role="COMPRA" EntitySet="COMPRAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___COMPR__4D5F7D71" Association="BD_DONJUANModel.FK__PRODUCTO___COMPR__4D5F7D71">
-            <End Role="COMPRA" EntitySet="COMPRAs" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EMPLEADO__PUESTO__38996AB5" Association="BD_DONJUANModel.FK__EMPLEADO__PUESTO__38996AB5">
-            <End Role="PUESTO" EntitySet="PUESTOes" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__NOMINA__EMPLEADO__3E52440B" Association="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3E52440B">
-            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
-            <End Role="NOMINA" EntitySet="NOMINAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VENTA__EMPLEADO___05D8E0BE" Association="BD_DONJUANModel.FK__VENTA__EMPLEADO___05D8E0BE">
-            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
-            <End Role="VENTA" EntitySet="VENTAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FACTURACI__VENTA__37703C52" Association="BD_DONJUANModel.FK__FACTURACI__VENTA__37703C52">
-            <End Role="VENTA" EntitySet="VENTAs" />
-            <End Role="FACTURACION" EntitySet="FACTURACIONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__INVENTARI__PRODU__571DF1D5" Association="BD_DONJUANModel.FK__INVENTARI__PRODU__571DF1D5">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="INVENTARIO" EntitySet="INVENTARIOs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__40058253" Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__40058253">
-            <End Role="PEDIDO" EntitySet="PEDIDOes" />
-            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PEDID__4E53A1AA" Association="BD_DONJUANModel.FK__PRODUCTO___PEDID__4E53A1AA">
-            <End Role="PEDIDO" EntitySet="PEDIDOes" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PEDIDO_RE__PEDID__42E1EEFE" Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__42E1EEFE">
-            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
-            <End Role="PEDIDO_RECIBIDO_PRODUCTO" EntitySet="PEDIDO_RECIBIDO_PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PRODU__4B7734FF" Association="BD_DONJUANModel.FK__PRODUCTO___PRODU__4B7734FF">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO__PROVEE__607251E5" Association="BD_DONJUANModel.FK__PRODUCTO__PROVEE__607251E5">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__STOCK__PRODUCTO___5070F446" Association="BD_DONJUANModel.FK__STOCK__PRODUCTO___5070F446">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="STOCK" EntitySet="STOCKs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__PRODU__3B40CD36" Association="BD_DONJUANModel.FK__VENTA_PRO__PRODU__3B40CD36">
-            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
-            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PRODUCTO___PROVE__4C6B5938" Association="BD_DONJUANModel.FK__PRODUCTO___PROVE__4C6B5938">
-            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
-            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__VENTA_PRO__VENTA__3A4CA8FD" Association="BD_DONJUANModel.FK__VENTA_PRO__VENTA__3A4CA8FD">
-            <End Role="VENTA" EntitySet="VENTAs" />
-            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCTO_CATEGORIA" Association="BD_DONJUANModel.FK_PRODUCTO_CATEGORIA">
             <End Role="CATEGORIA" EntitySet="CATEGORIAs" />
             <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__COMPRA__PROVEEDO__41B8C09B" Association="BD_DONJUANModel.FK__COMPRA__PROVEEDO__41B8C09B">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="COMPRA" EntitySet="COMPRAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___COMPR__59904A2C" Association="BD_DONJUANModel.FK__PRODUCTO___COMPR__59904A2C">
+            <End Role="COMPRA" EntitySet="COMPRAs" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLEADO__PUESTO__318258D2" Association="BD_DONJUANModel.FK__EMPLEADO__PUESTO__318258D2">
+            <End Role="PUESTO" EntitySet="PUESTOes" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NOMINA__EMPLEADO__3A179ED3" Association="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3A179ED3">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="NOMINA" EntitySet="NOMINAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA__EMPLEADO___345EC57D" Association="BD_DONJUANModel.FK__VENTA__EMPLEADO___345EC57D">
+            <End Role="EMPLEADO" EntitySet="EMPLEADOes" />
+            <End Role="VENTA" EntitySet="VENTAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FACTURACI__VENTA__373B3228" Association="BD_DONJUANModel.FK__FACTURACI__VENTA__373B3228">
+            <End Role="VENTA" EntitySet="VENTAs" />
+            <End Role="FACTURACION" EntitySet="FACTURACIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INVENTARI__PRODU__5F492382" Association="BD_DONJUANModel.FK__INVENTARI__PRODU__5F492382">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="INVENTARIO" EntitySet="INVENTARIOs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__467D75B8" Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__467D75B8">
+            <End Role="PEDIDO" EntitySet="PEDIDOes" />
+            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___PEDID__5A846E65" Association="BD_DONJUANModel.FK__PRODUCTO___PEDID__5A846E65">
+            <End Role="PEDIDO" EntitySet="PEDIDOes" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PEDIDO_RE__PEDID__4959E263" Association="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__4959E263">
+            <End Role="PEDIDO_RECIBIDO" EntitySet="PEDIDO_RECIBIDO" />
+            <End Role="PEDIDO_RECIBIDO_PRODUCTO" EntitySet="PEDIDO_RECIBIDO_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___PRODU__5B78929E" Association="BD_DONJUANModel.FK__PRODUCTO___PRODU__5B78929E">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO__PROVEE__4F12BBB9" Association="BD_DONJUANModel.FK__PRODUCTO__PROVEE__4F12BBB9">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__STOCK__PRODUCTO___6501FCD8" Association="BD_DONJUANModel.FK__STOCK__PRODUCTO___6501FCD8">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="STOCK" EntitySet="STOCKs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA_PRO__PRODU__52E34C9D" Association="BD_DONJUANModel.FK__VENTA_PRO__PRODU__52E34C9D">
+            <End Role="PRODUCTO" EntitySet="PRODUCTOes" />
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRODUCTO___PROVE__5C6CB6D7" Association="BD_DONJUANModel.FK__PRODUCTO___PROVE__5C6CB6D7">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDORs" />
+            <End Role="PRODUCTO_MOVIMIENTO" EntitySet="PRODUCTO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VENTA_PRO__VENTA__53D770D6" Association="BD_DONJUANModel.FK__VENTA_PRO__VENTA__53D770D6">
+            <End Role="VENTA" EntitySet="VENTAs" />
+            <End Role="VENTA_PRODUCTO" EntitySet="VENTA_PRODUCTO" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ASISTENCIA">
@@ -633,22 +634,31 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="ASISTENCIA_ID" Type="Int32" Nullable="false" />
           <Property Name="EMPLEADO_ID" Type="Int32" Nullable="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <Property Name="HORA_ENTRADA" Type="DateTime" Precision="0" />
-          <Property Name="HORA_SALIDA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__ASISTENCI__EMPLE__3B75D760" FromRole="ASISTENCIA" ToRole="EMPLEADO" />
+          <Property Name="HORA_ENTRADA" Type="Time" Precision="7" />
+          <Property Name="HORA_SALIDA" Type="Time" Precision="7" />
+          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__ASISTENCI__EMPLE__67DE6983" FromRole="ASISTENCIA" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="CATEGORIA_ID" />
+          </Key>
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORIA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PRODUCTOes" Relationship="BD_DONJUANModel.FK_PRODUCTO_CATEGORIA" FromRole="CATEGORIA" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="COMPRA">
           <Key>
             <PropertyRef Name="COMPRA_ID" />
           </Key>
-          <Property Name="COMPRA_ID" Type="Int32" Nullable="false" />
+          <Property Name="COMPRA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PROVEEDOR_ID" Type="Int32" Nullable="false" />
           <Property Name="SUBTOTAL" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TOTAL" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="ESTADO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__COMPRA__PROVEEDO__619B8048" FromRole="COMPRA" ToRole="PROVEEDOR" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___COMPR__4D5F7D71" FromRole="COMPRA" ToRole="PRODUCTO_MOVIMIENTO" />
+          <Property Name="FACTURA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__COMPRA__PROVEEDO__41B8C09B" FromRole="COMPRA" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___COMPR__59904A2C" FromRole="COMPRA" ToRole="PRODUCTO_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="EMPLEADO">
           <Key>
@@ -660,10 +670,10 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="RFC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ASISTENCIAs" Relationship="BD_DONJUANModel.FK__ASISTENCI__EMPLE__3B75D760" FromRole="EMPLEADO" ToRole="ASISTENCIA" />
-          <NavigationProperty Name="PUESTO" Relationship="BD_DONJUANModel.FK__EMPLEADO__PUESTO__38996AB5" FromRole="EMPLEADO" ToRole="PUESTO" />
-          <NavigationProperty Name="NOMINAs" Relationship="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3E52440B" FromRole="EMPLEADO" ToRole="NOMINA" />
-          <NavigationProperty Name="VENTAs" Relationship="BD_DONJUANModel.FK__VENTA__EMPLEADO___05D8E0BE" FromRole="EMPLEADO" ToRole="VENTA" />
+          <NavigationProperty Name="ASISTENCIAs" Relationship="BD_DONJUANModel.FK__ASISTENCI__EMPLE__67DE6983" FromRole="EMPLEADO" ToRole="ASISTENCIA" />
+          <NavigationProperty Name="PUESTO" Relationship="BD_DONJUANModel.FK__EMPLEADO__PUESTO__318258D2" FromRole="EMPLEADO" ToRole="PUESTO" />
+          <NavigationProperty Name="NOMINAs" Relationship="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3A179ED3" FromRole="EMPLEADO" ToRole="NOMINA" />
+          <NavigationProperty Name="VENTAs" Relationship="BD_DONJUANModel.FK__VENTA__EMPLEADO___345EC57D" FromRole="EMPLEADO" ToRole="VENTA" />
         </EntityType>
         <EntityType Name="FACTURACION">
           <Key>
@@ -672,16 +682,16 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="FACTURACION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="VENTA_ID" Type="Int32" Nullable="false" />
           <Property Name="CLIENTE_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="VENTA" Relationship="BD_DONJUANModel.FK__FACTURACI__VENTA__37703C52" FromRole="FACTURACION" ToRole="VENTA" />
+          <NavigationProperty Name="VENTA" Relationship="BD_DONJUANModel.FK__FACTURACI__VENTA__373B3228" FromRole="FACTURACION" ToRole="VENTA" />
         </EntityType>
         <EntityType Name="INVENTARIO">
           <Key>
             <PropertyRef Name="INVENTARIO_ID" />
           </Key>
-          <Property Name="INVENTARIO_ID" Type="Int32" Nullable="false" />
+          <Property Name="INVENTARIO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__INVENTARI__PRODU__571DF1D5" FromRole="INVENTARIO" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__INVENTARI__PRODU__5F492382" FromRole="INVENTARIO" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="NOMINA">
           <Key>
@@ -691,7 +701,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="EMPLEADO_ID" Type="Int32" Nullable="false" />
           <Property Name="SUELDO_TOTAL" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="BONO" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3E52440B" FromRole="NOMINA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3A179ED3" FromRole="NOMINA" ToRole="EMPLEADO" />
         </EntityType>
         <EntityType Name="PEDIDO">
           <Key>
@@ -700,8 +710,8 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="PEDIDO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__40058253" FromRole="PEDIDO" ToRole="PEDIDO_RECIBIDO" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PEDID__4E53A1AA" FromRole="PEDIDO" ToRole="PRODUCTO_MOVIMIENTO" />
+          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__467D75B8" FromRole="PEDIDO" ToRole="PEDIDO_RECIBIDO" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PEDID__5A846E65" FromRole="PEDIDO" ToRole="PRODUCTO_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="PEDIDO_RECIBIDO">
           <Key>
@@ -710,8 +720,8 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="PEDIDO_REC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PEDIDO_ID" Type="Int32" Nullable="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="PEDIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__40058253" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO" />
-          <NavigationProperty Name="PEDIDO_RECIBIDO_PRODUCTO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__42E1EEFE" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO_RECIBIDO_PRODUCTO" />
+          <NavigationProperty Name="PEDIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__467D75B8" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO" />
+          <NavigationProperty Name="PEDIDO_RECIBIDO_PRODUCTO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__4959E263" FromRole="PEDIDO_RECIBIDO" ToRole="PEDIDO_RECIBIDO_PRODUCTO" />
         </EntityType>
         <EntityType Name="PEDIDO_RECIBIDO_PRODUCTO">
           <Key>
@@ -721,13 +731,13 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="PEDIDO_REC_ID" Type="Int32" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__42E1EEFE" FromRole="PEDIDO_RECIBIDO_PRODUCTO" ToRole="PEDIDO_RECIBIDO" />
+          <NavigationProperty Name="PEDIDO_RECIBIDO" Relationship="BD_DONJUANModel.FK__PEDIDO_RE__PEDID__4959E263" FromRole="PEDIDO_RECIBIDO_PRODUCTO" ToRole="PEDIDO_RECIBIDO" />
         </EntityType>
         <EntityType Name="PRODUCTO">
           <Key>
             <PropertyRef Name="PRODUCTO_ID" />
           </Key>
-          <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CATEGORIA_ID" Type="Int32" Nullable="false" />
           <Property Name="PROVEEDOR_ID" Type="Int32" />
           <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -735,42 +745,42 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="COSTO" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="UNIDAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="MARCA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="INVENTARIOs" Relationship="BD_DONJUANModel.FK__INVENTARI__PRODU__571DF1D5" FromRole="PRODUCTO" ToRole="INVENTARIO" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PRODU__4B7734FF" FromRole="PRODUCTO" ToRole="PRODUCTO_MOVIMIENTO" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__PRODUCTO__PROVEE__607251E5" FromRole="PRODUCTO" ToRole="PROVEEDOR" />
-          <NavigationProperty Name="STOCKs" Relationship="BD_DONJUANModel.FK__STOCK__PRODUCTO___5070F446" FromRole="PRODUCTO" ToRole="STOCK" />
-          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__PRODU__3B40CD36" FromRole="PRODUCTO" ToRole="VENTA_PRODUCTO" />
           <NavigationProperty Name="CATEGORIA" Relationship="BD_DONJUANModel.FK_PRODUCTO_CATEGORIA" FromRole="PRODUCTO" ToRole="CATEGORIA" />
+          <NavigationProperty Name="INVENTARIOs" Relationship="BD_DONJUANModel.FK__INVENTARI__PRODU__5F492382" FromRole="PRODUCTO" ToRole="INVENTARIO" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PRODU__5B78929E" FromRole="PRODUCTO" ToRole="PRODUCTO_MOVIMIENTO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__PRODUCTO__PROVEE__4F12BBB9" FromRole="PRODUCTO" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="STOCKs" Relationship="BD_DONJUANModel.FK__STOCK__PRODUCTO___6501FCD8" FromRole="PRODUCTO" ToRole="STOCK" />
+          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__PRODU__52E34C9D" FromRole="PRODUCTO" ToRole="VENTA_PRODUCTO" />
         </EntityType>
         <EntityType Name="PRODUCTO_MOVIMIENTO">
           <Key>
             <PropertyRef Name="PRODUCTO_MOVIMIENTO_ID" />
           </Key>
           <Property Name="PRODUCTO_MOVIMIENTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PRODUCTO_ID" Type="Int32" />
+          <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="PROVEEDOR_ID" Type="Int32" />
           <Property Name="COMPRA_ID" Type="Int32" />
           <Property Name="PEDIDO_ID" Type="Int32" />
           <Property Name="CANTIDAD" Type="Int32" />
           <Property Name="TIPO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="COMPRA" Relationship="BD_DONJUANModel.FK__PRODUCTO___COMPR__4D5F7D71" FromRole="PRODUCTO_MOVIMIENTO" ToRole="COMPRA" />
-          <NavigationProperty Name="PEDIDO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PEDID__4E53A1AA" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PEDIDO" />
-          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PRODU__4B7734FF" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PRODUCTO" />
-          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__PRODUCTO___PROVE__4C6B5938" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PROVEEDOR" />
+          <NavigationProperty Name="COMPRA" Relationship="BD_DONJUANModel.FK__PRODUCTO___COMPR__59904A2C" FromRole="PRODUCTO_MOVIMIENTO" ToRole="COMPRA" />
+          <NavigationProperty Name="PEDIDO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PEDID__5A846E65" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PEDIDO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PRODU__5B78929E" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__PRODUCTO___PROVE__5C6CB6D7" FromRole="PRODUCTO_MOVIMIENTO" ToRole="PROVEEDOR" />
         </EntityType>
         <EntityType Name="PROVEEDOR">
           <Key>
             <PropertyRef Name="PROVEEDOR_ID" />
           </Key>
-          <Property Name="PROVEEDOR_ID" Type="Int32" Nullable="false" />
+          <Property Name="PROVEEDOR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="RFC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="RFC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="COMPRAs" Relationship="BD_DONJUANModel.FK__COMPRA__PROVEEDO__619B8048" FromRole="PROVEEDOR" ToRole="COMPRA" />
-          <NavigationProperty Name="PRODUCTOes" Relationship="BD_DONJUANModel.FK__PRODUCTO__PROVEE__607251E5" FromRole="PROVEEDOR" ToRole="PRODUCTO" />
-          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PROVE__4C6B5938" FromRole="PROVEEDOR" ToRole="PRODUCTO_MOVIMIENTO" />
+          <NavigationProperty Name="COMPRAs" Relationship="BD_DONJUANModel.FK__COMPRA__PROVEEDO__41B8C09B" FromRole="PROVEEDOR" ToRole="COMPRA" />
+          <NavigationProperty Name="PRODUCTOes" Relationship="BD_DONJUANModel.FK__PRODUCTO__PROVEE__4F12BBB9" FromRole="PROVEEDOR" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO_MOVIMIENTO" Relationship="BD_DONJUANModel.FK__PRODUCTO___PROVE__5C6CB6D7" FromRole="PROVEEDOR" ToRole="PRODUCTO_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="PUESTO">
           <Key>
@@ -779,16 +789,16 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="PUESTO_ID" Type="Int32" Nullable="false" />
           <Property Name="TIPO_PUESTO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="SUELDO_BASE" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="EMPLEADOes" Relationship="BD_DONJUANModel.FK__EMPLEADO__PUESTO__38996AB5" FromRole="PUESTO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="EMPLEADOes" Relationship="BD_DONJUANModel.FK__EMPLEADO__PUESTO__318258D2" FromRole="PUESTO" ToRole="EMPLEADO" />
         </EntityType>
         <EntityType Name="STOCK">
           <Key>
             <PropertyRef Name="STOCK_ID" />
           </Key>
-          <Property Name="STOCK_ID" Type="Int32" Nullable="false" />
+          <Property Name="STOCK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__STOCK__PRODUCTO___5070F446" FromRole="STOCK" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__STOCK__PRODUCTO___6501FCD8" FromRole="STOCK" ToRole="PRODUCTO" />
         </EntityType>
         <EntityType Name="VENTA">
           <Key>
@@ -799,9 +809,9 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="TOTAL" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
           <Property Name="DESCUENTO" Type="Boolean" />
-          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__VENTA__EMPLEADO___05D8E0BE" FromRole="VENTA" ToRole="EMPLEADO" />
-          <NavigationProperty Name="FACTURACIONs" Relationship="BD_DONJUANModel.FK__FACTURACI__VENTA__37703C52" FromRole="VENTA" ToRole="FACTURACION" />
-          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__VENTA__3A4CA8FD" FromRole="VENTA" ToRole="VENTA_PRODUCTO" />
+          <NavigationProperty Name="EMPLEADO" Relationship="BD_DONJUANModel.FK__VENTA__EMPLEADO___345EC57D" FromRole="VENTA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="FACTURACIONs" Relationship="BD_DONJUANModel.FK__FACTURACI__VENTA__373B3228" FromRole="VENTA" ToRole="FACTURACION" />
+          <NavigationProperty Name="VENTA_PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__VENTA__53D770D6" FromRole="VENTA" ToRole="VENTA_PRODUCTO" />
         </EntityType>
         <EntityType Name="VENTA_PRODUCTO">
           <Key>
@@ -812,16 +822,8 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="CANTIDAD" Type="Int32" Nullable="false" />
           <Property Name="PRODUCTO_ID" Type="Int32" Nullable="false" />
           <Property Name="PRECIO_ACTUAL" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__PRODU__3B40CD36" FromRole="VENTA_PRODUCTO" ToRole="PRODUCTO" />
-          <NavigationProperty Name="VENTA" Relationship="BD_DONJUANModel.FK__VENTA_PRO__VENTA__3A4CA8FD" FromRole="VENTA_PRODUCTO" ToRole="VENTA" />
-        </EntityType>
-        <EntityType Name="CATEGORIA">
-          <Key>
-            <PropertyRef Name="CATEGORIA_ID" />
-          </Key>
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CATEGORIA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="PRODUCTOes" Relationship="BD_DONJUANModel.FK_PRODUCTO_CATEGORIA" FromRole="CATEGORIA" ToRole="PRODUCTO" />
+          <NavigationProperty Name="PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__PRODU__52E34C9D" FromRole="VENTA_PRODUCTO" ToRole="PRODUCTO" />
+          <NavigationProperty Name="VENTA" Relationship="BD_DONJUANModel.FK__VENTA_PRO__VENTA__53D770D6" FromRole="VENTA_PRODUCTO" ToRole="VENTA" />
         </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
@@ -838,7 +840,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="ESTADO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CLIENTE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
-        <Association Name="FK__ASISTENCI__EMPLE__3B75D760">
+        <Association Name="FK__ASISTENCI__EMPLE__67DE6983">
           <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -849,222 +851,6 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Principal>
             <Dependent Role="ASISTENCIA">
               <PropertyRef Name="EMPLEADO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__COMPRA__PROVEEDO__619B8048">
-          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.COMPRA" Role="COMPRA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROVEEDOR">
-              <PropertyRef Name="PROVEEDOR_ID" />
-            </Principal>
-            <Dependent Role="COMPRA">
-              <PropertyRef Name="PROVEEDOR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCTO___COMPR__4D5F7D71">
-          <End Type="BD_DONJUANModel.COMPRA" Role="COMPRA" Multiplicity="0..1" />
-          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMPRA">
-              <PropertyRef Name="COMPRA_ID" />
-            </Principal>
-            <Dependent Role="PRODUCTO_MOVIMIENTO">
-              <PropertyRef Name="COMPRA_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EMPLEADO__PUESTO__38996AB5">
-          <End Type="BD_DONJUANModel.PUESTO" Role="PUESTO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PUESTO">
-              <PropertyRef Name="PUESTO_ID" />
-            </Principal>
-            <Dependent Role="EMPLEADO">
-              <PropertyRef Name="PUESTO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__NOMINA__EMPLEADO__3E52440B">
-          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.NOMINA" Role="NOMINA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EMPLEADO">
-              <PropertyRef Name="EMPLEADO_ID" />
-            </Principal>
-            <Dependent Role="NOMINA">
-              <PropertyRef Name="EMPLEADO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__VENTA__EMPLEADO___05D8E0BE">
-          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EMPLEADO">
-              <PropertyRef Name="EMPLEADO_ID" />
-            </Principal>
-            <Dependent Role="VENTA">
-              <PropertyRef Name="EMPLEADO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__FACTURACI__VENTA__37703C52">
-          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.FACTURACION" Role="FACTURACION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VENTA">
-              <PropertyRef Name="VENTA_ID" />
-            </Principal>
-            <Dependent Role="FACTURACION">
-              <PropertyRef Name="VENTA_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__INVENTARI__PRODU__571DF1D5">
-          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Principal>
-            <Dependent Role="INVENTARIO">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__40058253">
-          <End Type="BD_DONJUANModel.PEDIDO" Role="PEDIDO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO" Role="PEDIDO_RECIBIDO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PEDIDO">
-              <PropertyRef Name="PEDIDO_ID" />
-            </Principal>
-            <Dependent Role="PEDIDO_RECIBIDO">
-              <PropertyRef Name="PEDIDO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCTO___PEDID__4E53A1AA">
-          <End Type="BD_DONJUANModel.PEDIDO" Role="PEDIDO" Multiplicity="0..1" />
-          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PEDIDO">
-              <PropertyRef Name="PEDIDO_ID" />
-            </Principal>
-            <Dependent Role="PRODUCTO_MOVIMIENTO">
-              <PropertyRef Name="PEDIDO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PEDIDO_RE__PEDID__42E1EEFE">
-          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO" Role="PEDIDO_RECIBIDO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO_PRODUCTO" Role="PEDIDO_RECIBIDO_PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PEDIDO_RECIBIDO">
-              <PropertyRef Name="PEDIDO_REC_ID" />
-            </Principal>
-            <Dependent Role="PEDIDO_RECIBIDO_PRODUCTO">
-              <PropertyRef Name="PEDIDO_REC_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCTO___PRODU__4B7734FF">
-          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="0..1" />
-          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Principal>
-            <Dependent Role="PRODUCTO_MOVIMIENTO">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCTO__PROVEE__607251E5">
-          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROVEEDOR">
-              <PropertyRef Name="PROVEEDOR_ID" />
-            </Principal>
-            <Dependent Role="PRODUCTO">
-              <PropertyRef Name="PROVEEDOR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__STOCK__PRODUCTO___5070F446">
-          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.STOCK" Role="STOCK" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Principal>
-            <Dependent Role="STOCK">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__VENTA_PRO__PRODU__3B40CD36">
-          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.VENTA_PRODUCTO" Role="VENTA_PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRODUCTO">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Principal>
-            <Dependent Role="VENTA_PRODUCTO">
-              <PropertyRef Name="PRODUCTO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PRODUCTO___PROVE__4C6B5938">
-          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1" />
-          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PROVEEDOR">
-              <PropertyRef Name="PROVEEDOR_ID" />
-            </Principal>
-            <Dependent Role="PRODUCTO_MOVIMIENTO">
-              <PropertyRef Name="PROVEEDOR_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__VENTA_PRO__VENTA__3A4CA8FD">
-          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="BD_DONJUANModel.VENTA_PRODUCTO" Role="VENTA_PRODUCTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VENTA">
-              <PropertyRef Name="VENTA_ID" />
-            </Principal>
-            <Dependent Role="VENTA_PRODUCTO">
-              <PropertyRef Name="VENTA_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1080,7 +866,223 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK__COMPRA__PROVEEDO__41B8C09B">
+          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.COMPRA" Role="COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Principal>
+            <Dependent Role="COMPRA">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___COMPR__59904A2C">
+          <End Type="BD_DONJUANModel.COMPRA" Role="COMPRA" Multiplicity="0..1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPRA">
+              <PropertyRef Name="COMPRA_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO_MOVIMIENTO">
+              <PropertyRef Name="COMPRA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLEADO__PUESTO__318258D2">
+          <End Type="BD_DONJUANModel.PUESTO" Role="PUESTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PUESTO">
+              <PropertyRef Name="PUESTO_ID" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="PUESTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NOMINA__EMPLEADO__3A179ED3">
+          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.NOMINA" Role="NOMINA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="EMPLEADO_ID" />
+            </Principal>
+            <Dependent Role="NOMINA">
+              <PropertyRef Name="EMPLEADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VENTA__EMPLEADO___345EC57D">
+          <End Type="BD_DONJUANModel.EMPLEADO" Role="EMPLEADO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="EMPLEADO_ID" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="EMPLEADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FACTURACI__VENTA__373B3228">
+          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.FACTURACION" Role="FACTURACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="VENTA_ID" />
+            </Principal>
+            <Dependent Role="FACTURACION">
+              <PropertyRef Name="VENTA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INVENTARI__PRODU__5F492382">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.INVENTARIO" Role="INVENTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Principal>
+            <Dependent Role="INVENTARIO">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDO_RE__PEDID__467D75B8">
+          <End Type="BD_DONJUANModel.PEDIDO" Role="PEDIDO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO" Role="PEDIDO_RECIBIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="PEDIDO_ID" />
+            </Principal>
+            <Dependent Role="PEDIDO_RECIBIDO">
+              <PropertyRef Name="PEDIDO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___PEDID__5A846E65">
+          <End Type="BD_DONJUANModel.PEDIDO" Role="PEDIDO" Multiplicity="0..1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO">
+              <PropertyRef Name="PEDIDO_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO_MOVIMIENTO">
+              <PropertyRef Name="PEDIDO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PEDIDO_RE__PEDID__4959E263">
+          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO" Role="PEDIDO_RECIBIDO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.PEDIDO_RECIBIDO_PRODUCTO" Role="PEDIDO_RECIBIDO_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PEDIDO_RECIBIDO">
+              <PropertyRef Name="PEDIDO_REC_ID" />
+            </Principal>
+            <Dependent Role="PEDIDO_RECIBIDO_PRODUCTO">
+              <PropertyRef Name="PEDIDO_REC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___PRODU__5B78929E">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO_MOVIMIENTO">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO__PROVEE__4F12BBB9">
+          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__STOCK__PRODUCTO___6501FCD8">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.STOCK" Role="STOCK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Principal>
+            <Dependent Role="STOCK">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VENTA_PRO__PRODU__52E34C9D">
+          <End Type="BD_DONJUANModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.VENTA_PRODUCTO" Role="VENTA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Principal>
+            <Dependent Role="VENTA_PRODUCTO">
+              <PropertyRef Name="PRODUCTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRODUCTO___PROVE__5C6CB6D7">
+          <End Type="BD_DONJUANModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="0..1" />
+          <End Type="BD_DONJUANModel.PRODUCTO_MOVIMIENTO" Role="PRODUCTO_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTO_MOVIMIENTO">
+              <PropertyRef Name="PROVEEDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VENTA_PRO__VENTA__53D770D6">
+          <End Type="BD_DONJUANModel.VENTA" Role="VENTA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BD_DONJUANModel.VENTA_PRODUCTO" Role="VENTA_PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="VENTA_ID" />
+            </Principal>
+            <Dependent Role="VENTA_PRODUCTO">
+              <PropertyRef Name="VENTA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1097,9 +1099,18 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIAs">
+            <EntityTypeMapping TypeName="BD_DONJUANModel.CATEGORIA">
+              <MappingFragment StoreEntitySet="CATEGORIA">
+                <ScalarProperty Name="CATEGORIA_ID" ColumnName="CATEGORIA_ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="COMPRAs">
             <EntityTypeMapping TypeName="BD_DONJUANModel.COMPRA">
               <MappingFragment StoreEntitySet="COMPRA">
+                <ScalarProperty Name="FACTURA" ColumnName="FACTURA" />
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
@@ -1253,14 +1264,6 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
                 <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
                 <ScalarProperty Name="VENTA_ID" ColumnName="VENTA_ID" />
                 <ScalarProperty Name="VENTA_PRODUCTO_ID" ColumnName="VENTA_PRODUCTO_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CATEGORIAs">
-            <EntityTypeMapping TypeName="BD_DONJUANModel.CATEGORIA">
-              <MappingFragment StoreEntitySet="CATEGORIA">
-                <ScalarProperty Name="CATEGORIA_ID" ColumnName="CATEGORIA_ID" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

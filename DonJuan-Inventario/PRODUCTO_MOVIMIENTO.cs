@@ -15,7 +15,7 @@ namespace DonJuan_Inventario
     public partial class PRODUCTO_MOVIMIENTO
     {
         public int PRODUCTO_MOVIMIENTO_ID { get; set; }
-        public Nullable<int> PRODUCTO_ID { get; set; }
+        public int PRODUCTO_ID { get; set; }
         public Nullable<int> PROVEEDOR_ID { get; set; }
         public Nullable<int> COMPRA_ID { get; set; }
         public Nullable<int> PEDIDO_ID { get; set; }
