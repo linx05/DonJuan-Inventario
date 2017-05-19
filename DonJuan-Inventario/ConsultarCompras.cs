@@ -53,8 +53,8 @@ namespace DonJuan_Inventario
 
         private void listarProductos ()
         {
-            dtgProductos.DataSource = null;
-            dtgProductos.DataSource = selectedProducts;
+            dtgProducto.DataSource = null;
+            dtgProducto.DataSource = selectedProducts;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
