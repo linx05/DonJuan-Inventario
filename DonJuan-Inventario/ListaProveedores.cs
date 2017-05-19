@@ -32,8 +32,8 @@ namespace DonJuan_Inventario
         {
             using (var donJuan = new DonJuan_Inventario.BD_DONJUANEntities())
             {
-                var proveedor = new PROVEEDOR();
-                dataGridView1.DataSource = proveedor;
+                prove = donJuan.PROVEEDORs.ToList();
+                dtgProveedores.DataSource = prove;
 
                 //prove = donJuan.PROVEEDORs.ToList();
                 //dtgProveedores2.Columns[1].DataPropertyName = "Proveedor_ID";
