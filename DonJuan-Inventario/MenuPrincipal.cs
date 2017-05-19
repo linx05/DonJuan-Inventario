@@ -16,19 +16,6 @@ namespace DonJuan_Inventario
         {
             InitializeComponent();
         }
-
-        private void registrarProveedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RegistarProveedor RP = new RegistarProveedor();
-            RP.Show();
-        }
-
-        private void registrarProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RegistrarProducto RPR = new RegistrarProducto();
-            RPR.Show();
-        }
-
         private void registrarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -40,27 +27,45 @@ namespace DonJuan_Inventario
             CP.Show();
         }
 
-        private void registrarCompraDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RegistrarCompra RC = new RegistrarCompra();
-            RC.Show();
+            Application.Exit();
         }
 
-        private void consultarComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void registrarProductoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ConsultarCompras CC = new ConsultarCompras();
-            CC.Show();
+            RegistrarProducto RPR = new RegistrarProducto();
+            RPR.Show();
         }
 
-        private void consultarInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultarInventarioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ConsultarInventario CI = new ConsultarInventario();
             CI.Show();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void registrarProveedorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            RegistarProveedor RP = new RegistarProveedor();
+            RP.Show();
+        }
+
+        private void listaDeProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaProveedores LP = new ListaProveedores();
+            LP.Show();
+        }
+
+        private void registrarCompraDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrarCompra RC = new RegistrarCompra();
+            RC.Show();
+        }
+
+        private void consultarComprasDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultarCompras CC = new ConsultarCompras();
+            CC.Show();
         }
     }
 }

@@ -78,7 +78,6 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(153, 45);
             this.btnSalir.TabIndex = 23;
-            this.btnSalir.Text = "Salir";
             this.toolTip1.SetToolTip(this.btnSalir, "Salir");
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
