@@ -79,6 +79,7 @@
     <Compile Include="INVENTARIO.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\ProductoMovimiento.cs" />
     <Compile Include="NOMINA.cs">
