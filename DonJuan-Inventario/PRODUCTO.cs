@@ -32,6 +32,7 @@ namespace DonJuan_Inventario
         public string UNIDAD { get; set; }
         public string MARCA { get; set; }
     
+        public virtual CATEGORIA CATEGORIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INVENTARIO> INVENTARIOs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -41,6 +42,5 @@ namespace DonJuan_Inventario
         public virtual ICollection<STOCK> STOCKs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VENTA_PRODUCTO> VENTA_PRODUCTO { get; set; }
-        public virtual CATEGORIA CATEGORIA { get; set; }
     }
 }

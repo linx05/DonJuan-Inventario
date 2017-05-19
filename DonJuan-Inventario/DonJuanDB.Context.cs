@@ -27,6 +27,7 @@ namespace DonJuan_Inventario
         }
     
         public virtual DbSet<ASISTENCIA> ASISTENCIAs { get; set; }
+        public virtual DbSet<CATEGORIA> CATEGORIAs { get; set; }
         public virtual DbSet<COMPRA> COMPRAs { get; set; }
         public virtual DbSet<EMPLEADO> EMPLEADOes { get; set; }
         public virtual DbSet<FACTURACION> FACTURACIONs { get; set; }
@@ -42,7 +43,6 @@ namespace DonJuan_Inventario
         public virtual DbSet<STOCK> STOCKs { get; set; }
         public virtual DbSet<VENTA> VENTAs { get; set; }
         public virtual DbSet<VENTA_PRODUCTO> VENTA_PRODUCTO { get; set; }
-        public virtual DbSet<CATEGORIA> CATEGORIAs { get; set; }
         public virtual DbSet<CLIENTE> CLIENTEs { get; set; }
     }
 }

@@ -26,6 +26,7 @@ namespace DonJuan_Inventario
         public Nullable<decimal> TOTAL { get; set; }
         public string ESTADO { get; set; }
         public Nullable<System.DateTime> FECHA { get; set; }
+        public string FACTURA { get; set; }
     
         public virtual PROVEEDOR PROVEEDOR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

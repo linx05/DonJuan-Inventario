@@ -25,11 +25,11 @@ namespace DonJuan_Inventario
                 {
                     var multiplier = (producto.TIPO == PRODUCTO_MOVIMIENTO.TiposMovimiento["COMPRA"]) ? 1 : -1;
                     var cantidad = (producto.CANTIDAD ?? 0) * multiplier;
-                    var element = donJuan.INVENTARIOs.ToList();
-                    //var element = donJuan.INVENTARIOs.Where(x => x.PRODUCTO_ID == producto.PRODUCTO_ID).FirstOrDefault();
+                    //var element = donJuan.INVENTARIOs.ToList();
+                    var element = donJuan.INVENTARIOs.Where(x => x.PRODUCTO.PRODUCTO_ID == producto.PRODUCTO_ID).FirstOrDefault();
                     if (element != null)
                     {
-                        //element.CANTIDAD += cantidad;
+                        element.CANTIDAD += cantidad;
                     }
                 }
                 donJuan.SaveChanges();
