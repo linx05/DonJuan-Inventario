@@ -36,6 +36,21 @@ namespace DonJuan_Inventario
             }
         }
 
+        public DataGridViewRow getSelectedRow(DataGridView view)
+        {
+            List<DataGridViewRow> rowCollection = new List<DataGridViewRow>();
+
+            foreach (DataGridViewCell cell in view.SelectedCells)
+            {
+                rowCollection.Add(view.Rows[cell.RowIndex]);
+            }
+            if (rowCollection.Count() > 0)
+            {
+                return rowCollection.FirstOrDefault();
+            }
+            else return null;
+        }
+
         private void InitializeComponent()
         {
             this.SuspendLayout();
