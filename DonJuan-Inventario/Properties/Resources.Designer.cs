@@ -93,6 +93,16 @@ namespace DonJuan_Inventario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Fondo {
+            get {
+                object obj = ResourceManager.GetObject("Fondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icono_flecha_derecha {
             get {
                 object obj = ResourceManager.GetObject("icono-flecha-derecha", resourceCulture);
@@ -106,6 +116,16 @@ namespace DonJuan_Inventario.Properties {
         internal static System.Drawing.Bitmap logotipo_don_juan {
             get {
                 object obj = ResourceManager.GetObject("logotipo_don_juan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logotipo_don_juan_BLANCO {
+            get {
+                object obj = ResourceManager.GetObject("logotipo_don_juan BLANCO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

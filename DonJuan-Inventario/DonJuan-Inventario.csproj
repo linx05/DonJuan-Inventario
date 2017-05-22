@@ -273,6 +273,8 @@
       <DependentUpon>DonJuanDB.edmx</DependentUpon>
       <LastGenOutput>DonJuanDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\logotipo_don_juan BLANCO.png" />
+    <None Include="Resources\Fondo.jpg" />
     <None Include="Resources\cancel_77947.png" />
     <None Include="Resources\plus-1270001_960_720.png" />
     <None Include="Resources\CONSTANCIA.png" />
