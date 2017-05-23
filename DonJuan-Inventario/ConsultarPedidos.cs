@@ -115,5 +115,10 @@ namespace DonJuan_Inventario
                 processSelected();
             }
         }
+
+        private void dtgProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

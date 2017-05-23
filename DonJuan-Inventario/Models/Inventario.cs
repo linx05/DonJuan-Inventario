@@ -18,13 +18,13 @@ namespace DonJuan_Inventario
     public class INVENTARIOMetaData
     {
         [DisplayName("ID Inventario")]
-        public int INVENTARIO_ID { get; }
+        public int INVENTARIO_ID { get; set; }
         [DisplayName("ID Producto")]
-        public int PRODUCTO_ID { get; }
+        public int PRODUCTO_ID { get; set; }
         [DisplayName("Cantidad")]
-        public int CANTIDAD { get; }
+        public int CANTIDAD { get; set; }
         [System.ComponentModel.Browsable(false)]
-        public virtual PRODUCTO PRODUCTO { get;}
+        public virtual PRODUCTO PRODUCTO { get; set; }
     }
 
 }
