@@ -273,6 +273,8 @@
       <DependentUpon>DonJuanDB.edmx</DependentUpon>
       <LastGenOutput>DonJuanDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Salir.png" />
+    <None Include="Resources\Ingresar.png" />
     <None Include="Resources\Logo con sombra 2.png" />
     <None Include="Resources\Fondo Azul 2.jpg" />
     <None Include="Resources\compras.png" />

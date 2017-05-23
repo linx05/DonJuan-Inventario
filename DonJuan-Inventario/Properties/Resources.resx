@@ -130,6 +130,9 @@
   <data name="CONSTANCIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CONSTANCIA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logo con sombra 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo con sombra 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Fondo lineas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fondo lineas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,6 +211,9 @@
   <data name="icono 6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icono 6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Ingresar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ingresar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="compras2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\compras2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -250,7 +256,7 @@
   <data name="pluszjel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pluszjel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo con sombra 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo con sombra 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
