@@ -16,7 +16,7 @@ namespace DonJuan_Inventario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuPrincipal());
+            Application.Run(new Form1());
         }
     }
 }

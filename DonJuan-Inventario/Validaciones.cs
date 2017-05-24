@@ -95,7 +95,7 @@ namespace DonJuan_Inventario
             if (Estado.Text == "")
             {
                 ok = false;
-                ErrorP.SetError(Estado, "Ingresar Estado");
+                ErrorP.SetError(Estado, "Ingresar No. Factura");
             }
 
 

@@ -12,9 +12,10 @@ namespace DonJuan_Inventario
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
-        {
+        public MenuPrincipal(string s)
+        {            
             InitializeComponent();
+            labelUsuario.Text = s;
         }
         private void registrarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -29,7 +30,19 @@ namespace DonJuan_Inventario
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Seguro que desea cerrar sesion?", "Salir", MessageBoxButtons.YesNoCancel);
+
+            if (result == DialogResult.Yes)
+            {
+                Form1 Log = new Form1();
+                Log.Show();
+                this.Close();
+            }
+            else
+            {
+                result = DialogResult.Cancel;
+            }
+
         }
 
         private void registrarProductoToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -71,6 +84,23 @@ namespace DonJuan_Inventario
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarProductocs MP = new ModificarProductocs();
+            MP.Show();
+        }
+
+        private void modificarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarProveedor MP = new ModificarProveedor();
+            MP.Show();
         }
     }
 }

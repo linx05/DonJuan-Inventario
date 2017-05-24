@@ -173,11 +173,6 @@ namespace DonJuan_Inventario
             V.PermitirNumeros(sender, e);
         }
 
-        private void txtEstado_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            V.PermitirLetras(sender, e);
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 

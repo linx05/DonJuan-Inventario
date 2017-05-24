@@ -30,6 +30,7 @@ namespace DonJuan_Inventario
             ListarCategoria();
             ListarProveedores();
             cmbUnidad.Text = "Kilogramos";
+            txtInitialInv.Text = "0";
             if (proveedores.Count() > 0 && categorias.Count() > 0)
             {
                 categ = cmbCategoria.SelectedValue.ToString();

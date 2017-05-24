@@ -90,6 +90,18 @@
     <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\ProductoMovimiento.cs" />
+    <Compile Include="ModificarProductocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarProductocs.Designer.cs">
+      <DependentUpon>ModificarProductocs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarProveedor.Designer.cs">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="NOMINA.cs">
       <DependentUpon>DonJuanDB.tt</DependentUpon>
     </Compile>
@@ -225,6 +237,12 @@
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModificarProductocs.resx">
+      <DependentUpon>ModificarProductocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarProveedor.resx">
+      <DependentUpon>ModificarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -273,6 +291,8 @@
       <DependentUpon>DonJuanDB.edmx</DependentUpon>
       <LastGenOutput>DonJuanDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Modificar.png" />
+    <None Include="Resources\Eliminar.png" />
     <None Include="Resources\Salir.png" />
     <None Include="Resources\Ingresar.png" />
     <None Include="Resources\Logo con sombra 2.png" />

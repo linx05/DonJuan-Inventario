@@ -52,11 +52,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Adobe Gothic Std B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(75, 196);
+            this.label2.Location = new System.Drawing.Point(61, 194);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
+            this.label2.Size = new System.Drawing.Size(185, 20);
             this.label2.TabIndex = 35;
             this.label2.Text = "Nombre del categoria:";
             // 
@@ -64,11 +64,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Adobe Gothic Std B", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label1.Location = new System.Drawing.Point(209, 152);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 20);
+            this.label1.Size = new System.Drawing.Size(33, 20);
             this.label1.TabIndex = 34;
             this.label1.Text = "ID:";
             // 
@@ -92,10 +92,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Adobe Gothic Std B", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label7.Location = new System.Drawing.Point(147, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 36);
+            this.label7.Size = new System.Drawing.Size(248, 33);
             this.label7.TabIndex = 38;
             this.label7.Text = "Nueva Categoria";
             this.label7.Click += new System.EventHandler(this.label7_Click);
