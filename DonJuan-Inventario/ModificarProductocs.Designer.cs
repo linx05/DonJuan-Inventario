@@ -70,7 +70,7 @@
             this.pictureBox1.Image = global::DonJuan_Inventario.Properties.Resources.logotipo_don_juan;
             this.pictureBox1.Location = new System.Drawing.Point(504, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(245, 91);
+            this.pictureBox1.Size = new System.Drawing.Size(242, 91);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 85;
             this.pictureBox1.TabStop = false;

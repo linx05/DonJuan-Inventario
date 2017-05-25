@@ -218,5 +218,10 @@ namespace DonJuan_Inventario
                 assignDataGridProducts(productosCompra);
             }
         }
+
+        private void dtgProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -291,6 +291,7 @@
       <DependentUpon>DonJuanDB.edmx</DependentUpon>
       <LastGenOutput>DonJuanDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Logotipo Cara.png" />
     <None Include="Resources\Modificar.png" />
     <None Include="Resources\Eliminar.png" />
     <None Include="Resources\Salir.png" />
