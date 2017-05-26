@@ -61,6 +61,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="RFC" Type="varchar" MaxLength="12" />
           <Property Name="DIRECCION" Type="varchar" MaxLength="50" />
           <Property Name="TELEFONO" Type="varchar" MaxLength="30" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="FACTURACION">
           <Key>
@@ -124,6 +125,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <Property Name="COSTO" Type="money" />
           <Property Name="UNIDAD" Type="varchar" MaxLength="30" />
           <Property Name="MARCA" Type="varchar" MaxLength="30" />
+          <Property Name="CODIGO" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="PRODUCTO_MOVIMIENTO">
           <Key>
@@ -674,6 +676,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <NavigationProperty Name="PUESTO" Relationship="BD_DONJUANModel.FK__EMPLEADO__PUESTO__318258D2" FromRole="EMPLEADO" ToRole="PUESTO" />
           <NavigationProperty Name="NOMINAs" Relationship="BD_DONJUANModel.FK__NOMINA__EMPLEADO__3A179ED3" FromRole="EMPLEADO" ToRole="NOMINA" />
           <NavigationProperty Name="VENTAs" Relationship="BD_DONJUANModel.FK__VENTA__EMPLEADO___345EC57D" FromRole="EMPLEADO" ToRole="VENTA" />
+          <Property Name="Contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="FACTURACION">
           <Key>
@@ -751,6 +754,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <NavigationProperty Name="PROVEEDOR" Relationship="BD_DONJUANModel.FK__PRODUCTO__PROVEE__4F12BBB9" FromRole="PRODUCTO" ToRole="PROVEEDOR" />
           <NavigationProperty Name="STOCKs" Relationship="BD_DONJUANModel.FK__STOCK__PRODUCTO___6501FCD8" FromRole="PRODUCTO" ToRole="STOCK" />
           <NavigationProperty Name="VENTA_PRODUCTO" Relationship="BD_DONJUANModel.FK__VENTA_PRO__PRODU__52E34C9D" FromRole="PRODUCTO" ToRole="VENTA_PRODUCTO" />
+          <Property Name="CODIGO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PRODUCTO_MOVIMIENTO">
           <Key>
@@ -1123,6 +1127,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <EntitySetMapping Name="EMPLEADOes">
             <EntityTypeMapping TypeName="BD_DONJUANModel.EMPLEADO">
               <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
                 <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
                 <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
                 <ScalarProperty Name="RFC" ColumnName="RFC" />
@@ -1191,6 +1196,7 @@ warning 6002: The table/view 'BD_DONJUAN.dbo.CLIENTE' does not have a primary ke
           <EntitySetMapping Name="PRODUCTOes">
             <EntityTypeMapping TypeName="BD_DONJUANModel.PRODUCTO">
               <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
                 <ScalarProperty Name="MARCA" ColumnName="MARCA" />
                 <ScalarProperty Name="UNIDAD" ColumnName="UNIDAD" />
                 <ScalarProperty Name="COSTO" ColumnName="COSTO" />

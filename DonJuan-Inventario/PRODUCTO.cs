@@ -31,6 +31,7 @@ namespace DonJuan_Inventario
         public Nullable<decimal> COSTO { get; set; }
         public string UNIDAD { get; set; }
         public string MARCA { get; set; }
+        public string CODIGO { get; set; }
     
         public virtual CATEGORIA CATEGORIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
