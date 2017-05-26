@@ -224,7 +224,6 @@
             this.txtProductoID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProductoID.Location = new System.Drawing.Point(217, 98);
             this.txtProductoID.Name = "txtProductoID";
-            this.txtProductoID.ReadOnly = true;
             this.txtProductoID.Size = new System.Drawing.Size(90, 20);
             this.txtProductoID.TabIndex = 1;
             // 

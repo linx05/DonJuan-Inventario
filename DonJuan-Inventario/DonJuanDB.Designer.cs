@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\VictorAlejandro\Documents\ITH\8 vo Semestre\Desarollo de Software  en Enfoque en el Negocio\Don Juan\DonJuan-Inventario\DonJuanDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\bodega\Desktop\DonJuan\DonJuan-Inventario\DonJuanDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

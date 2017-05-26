@@ -10,7 +10,8 @@ namespace DonJuan_Inventario
 {
     class SQLC
     {
-        SqlConnection Conexion = new SqlConnection("data source=ithdesarrollo.database.windows.net;initial catalog=BD_DONJUAN;persist security info=True;user id=ServerAdmin;password=wF8x9!!H;");
+        SqlConnection Conexion = new SqlConnection("data source = ithdesarrollo.database.windows.net; initial catalog = BD_DONJUAN; persist security info=True;user id = ServerAdmin; password=wF8x9!!H");
+        //SqlConnection Conexion = new SqlConnection("Data Source= Servidor-mada; Initial Catalog=BD_DONJUAN; User Id= sa; Password= Servidor2017");
         int Proveedor_ID, Proveedor_ID1;
         int Compra_ID, Compra_ID1;
         int Producto_ID, Producto_ID1;
