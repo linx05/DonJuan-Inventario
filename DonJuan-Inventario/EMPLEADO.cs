@@ -28,6 +28,7 @@ namespace DonJuan_Inventario
         public string RFC { get; set; }
         public string DIRECCION { get; set; }
         public string TELEFONO { get; set; }
+        public string Contraseña { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASISTENCIA> ASISTENCIAs { get; set; }

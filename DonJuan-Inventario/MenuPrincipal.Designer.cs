@@ -37,6 +37,7 @@
             this.listadoProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarProveedorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarCompraDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarComprasDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelUsuario = new System.Windows.Forms.Label();
-            this.modificarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             this.registrarProductoToolStripMenuItem1,
             this.consultarInventarioToolStripMenuItem1,
             this.modificarProductoToolStripMenuItem});
-            this.productosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.productosToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.productosToolStripMenuItem.Image = global::DonJuan_Inventario.Properties.Resources.icono_9;
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(150, 33);
@@ -85,6 +85,7 @@
             // registrarProductoToolStripMenuItem1
             // 
             this.registrarProductoToolStripMenuItem1.BackColor = System.Drawing.Color.Orange;
+            this.registrarProductoToolStripMenuItem1.ForeColor = System.Drawing.Color.Navy;
             this.registrarProductoToolStripMenuItem1.Name = "registrarProductoToolStripMenuItem1";
             this.registrarProductoToolStripMenuItem1.Size = new System.Drawing.Size(298, 34);
             this.registrarProductoToolStripMenuItem1.Text = "Registrar Producto";
@@ -93,6 +94,7 @@
             // consultarInventarioToolStripMenuItem1
             // 
             this.consultarInventarioToolStripMenuItem1.BackColor = System.Drawing.Color.Orange;
+            this.consultarInventarioToolStripMenuItem1.ForeColor = System.Drawing.Color.Navy;
             this.consultarInventarioToolStripMenuItem1.Name = "consultarInventarioToolStripMenuItem1";
             this.consultarInventarioToolStripMenuItem1.Size = new System.Drawing.Size(298, 34);
             this.consultarInventarioToolStripMenuItem1.Text = "Consultar Inventario";
@@ -101,6 +103,7 @@
             // modificarProductoToolStripMenuItem
             // 
             this.modificarProductoToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.modificarProductoToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.modificarProductoToolStripMenuItem.Name = "modificarProductoToolStripMenuItem";
             this.modificarProductoToolStripMenuItem.Size = new System.Drawing.Size(298, 34);
             this.modificarProductoToolStripMenuItem.Text = "Modificar Producto";
@@ -113,7 +116,7 @@
             this.registrarProveedorToolStripMenuItem1,
             this.listaDeProveedoresToolStripMenuItem,
             this.modificarProveedoresToolStripMenuItem});
-            this.listadoProveedoresToolStripMenuItem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.listadoProveedoresToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.listadoProveedoresToolStripMenuItem.Image = global::DonJuan_Inventario.Properties.Resources.icono_3;
             this.listadoProveedoresToolStripMenuItem.Name = "listadoProveedoresToolStripMenuItem";
             this.listadoProveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 33);
@@ -122,6 +125,7 @@
             // registrarProveedorToolStripMenuItem1
             // 
             this.registrarProveedorToolStripMenuItem1.BackColor = System.Drawing.Color.Orange;
+            this.registrarProveedorToolStripMenuItem1.ForeColor = System.Drawing.Color.Navy;
             this.registrarProveedorToolStripMenuItem1.Name = "registrarProveedorToolStripMenuItem1";
             this.registrarProveedorToolStripMenuItem1.Size = new System.Drawing.Size(330, 34);
             this.registrarProveedorToolStripMenuItem1.Text = "Registrar Proveedor";
@@ -130,10 +134,20 @@
             // listaDeProveedoresToolStripMenuItem
             // 
             this.listaDeProveedoresToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.listaDeProveedoresToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.listaDeProveedoresToolStripMenuItem.Name = "listaDeProveedoresToolStripMenuItem";
             this.listaDeProveedoresToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
             this.listaDeProveedoresToolStripMenuItem.Text = "Lista de Proveedores";
             this.listaDeProveedoresToolStripMenuItem.Click += new System.EventHandler(this.listaDeProveedoresToolStripMenuItem_Click);
+            // 
+            // modificarProveedoresToolStripMenuItem
+            // 
+            this.modificarProveedoresToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.modificarProveedoresToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
+            this.modificarProveedoresToolStripMenuItem.Name = "modificarProveedoresToolStripMenuItem";
+            this.modificarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
+            this.modificarProveedoresToolStripMenuItem.Text = "Modificar Proveedores";
+            this.modificarProveedoresToolStripMenuItem.Click += new System.EventHandler(this.modificarProveedoresToolStripMenuItem_Click);
             // 
             // comprasToolStripMenuItem
             // 
@@ -141,7 +155,7 @@
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarCompraDeProductosToolStripMenuItem,
             this.consultarComprasDeProductosToolStripMenuItem});
-            this.comprasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comprasToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.comprasToolStripMenuItem.Image = global::DonJuan_Inventario.Properties.Resources.icono_5;
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
             this.comprasToolStripMenuItem.Size = new System.Drawing.Size(139, 33);
@@ -150,6 +164,7 @@
             // registrarCompraDeProductosToolStripMenuItem
             // 
             this.registrarCompraDeProductosToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.registrarCompraDeProductosToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.registrarCompraDeProductosToolStripMenuItem.Name = "registrarCompraDeProductosToolStripMenuItem";
             this.registrarCompraDeProductosToolStripMenuItem.Size = new System.Drawing.Size(441, 34);
             this.registrarCompraDeProductosToolStripMenuItem.Text = "Registrar Compra de Productos";
@@ -158,6 +173,7 @@
             // consultarComprasDeProductosToolStripMenuItem
             // 
             this.consultarComprasDeProductosToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.consultarComprasDeProductosToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.consultarComprasDeProductosToolStripMenuItem.Name = "consultarComprasDeProductosToolStripMenuItem";
             this.consultarComprasDeProductosToolStripMenuItem.Size = new System.Drawing.Size(441, 34);
             this.consultarComprasDeProductosToolStripMenuItem.Text = "Consultar Compras de Productos";
@@ -169,7 +185,7 @@
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarPedidoToolStripMenuItem,
             this.consultarPedidosToolStripMenuItem});
-            this.pedidosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.pedidosToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.pedidosToolStripMenuItem.Image = global::DonJuan_Inventario.Properties.Resources.icono_8;
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(131, 33);
@@ -178,6 +194,7 @@
             // registrarPedidoToolStripMenuItem
             // 
             this.registrarPedidoToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.registrarPedidoToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.registrarPedidoToolStripMenuItem.Name = "registrarPedidoToolStripMenuItem";
             this.registrarPedidoToolStripMenuItem.Size = new System.Drawing.Size(413, 34);
             this.registrarPedidoToolStripMenuItem.Text = "Registrar Pedido";
@@ -187,6 +204,7 @@
             // consultarPedidosToolStripMenuItem
             // 
             this.consultarPedidosToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.consultarPedidosToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.consultarPedidosToolStripMenuItem.Name = "consultarPedidosToolStripMenuItem";
             this.consultarPedidosToolStripMenuItem.Size = new System.Drawing.Size(413, 34);
             this.consultarPedidosToolStripMenuItem.Text = "Consultar Pedidos a Inventario";
@@ -194,7 +212,7 @@
             // 
             // salirToolStripMenuItem
             // 
-            this.salirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.salirToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.salirToolStripMenuItem.Image = global::DonJuan_Inventario.Properties.Resources.icono_1;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(90, 33);
@@ -230,19 +248,11 @@
             this.labelUsuario.BackColor = System.Drawing.Color.Transparent;
             this.labelUsuario.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsuario.ForeColor = System.Drawing.Color.Orange;
-            this.labelUsuario.Location = new System.Drawing.Point(337, 59);
+            this.labelUsuario.Location = new System.Drawing.Point(346, 59);
             this.labelUsuario.Name = "labelUsuario";
             this.labelUsuario.Size = new System.Drawing.Size(105, 45);
             this.labelUsuario.TabIndex = 4;
             this.labelUsuario.Text = "label2";
-            // 
-            // modificarProveedoresToolStripMenuItem
-            // 
-            this.modificarProveedoresToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
-            this.modificarProveedoresToolStripMenuItem.Name = "modificarProveedoresToolStripMenuItem";
-            this.modificarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(330, 34);
-            this.modificarProveedoresToolStripMenuItem.Text = "Modificar Proveedores";
-            this.modificarProveedoresToolStripMenuItem.Click += new System.EventHandler(this.modificarProveedoresToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 

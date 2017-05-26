@@ -56,6 +56,7 @@ namespace DonJuan_Inventario
             {
                 producto.PRODUCTO_ID = Convert.ToInt32(txtProductoID.Text);
                 producto.NOMBRE = txtNombreProducto.Text;
+                producto.CODIGO = txtProductCode.Text;
                 producto.PRECIO = Convert.ToDecimal(txtPrecio.Text);
                 producto.COSTO = Convert.ToDecimal(txtCostoProducto.Text);
                 producto.UNIDAD = cmbUnidad.Text;
