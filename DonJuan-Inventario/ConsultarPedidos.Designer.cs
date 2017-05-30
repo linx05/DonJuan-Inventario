@@ -109,11 +109,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Adobe Gothic Std B", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Orange;
             this.label7.Location = new System.Drawing.Point(227, 26);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(326, 47);
+            this.label7.Size = new System.Drawing.Size(341, 42);
             this.label7.TabIndex = 18;
             this.label7.Text = "Consultar Pedidos";
             // 
@@ -143,11 +143,11 @@
             // 
             this.lblChangeState.AutoSize = true;
             this.lblChangeState.BackColor = System.Drawing.Color.Transparent;
-            this.lblChangeState.Font = new System.Drawing.Font("Adobe Gothic Std B", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChangeState.ForeColor = System.Drawing.Color.DimGray;
             this.lblChangeState.Location = new System.Drawing.Point(654, 100);
             this.lblChangeState.Name = "lblChangeState";
-            this.lblChangeState.Size = new System.Drawing.Size(144, 24);
+            this.lblChangeState.Size = new System.Drawing.Size(157, 24);
             this.lblChangeState.TabIndex = 27;
             this.lblChangeState.Text = "Cambiar Estado";
             // 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace DonJuan_Inventario
 {
@@ -18,7 +19,11 @@ namespace DonJuan_Inventario
         int Categoria_ID, Categoria_ID1;
         public string User = "";
         public string password = "";
+        ArrayList Cantidades = new ArrayList();
+       public  bool CantidadesD = false; 
+        int Puntero = 0;
 
+        int x = 0;
         public void idproveedor(TextBox TxtIDProveedor)
         {
             Conexion.Open();
@@ -207,6 +212,51 @@ namespace DonJuan_Inventario
             Conexion.Open();
             cmd.ExecuteNonQuery();
             Conexion.Close();
+        }
+
+        public void ConsultarCantidad(DataGridView DgvPedidos)
+        {
+            
+            foreach (DataGridViewRow row in DgvPedidos.Rows)
+            {
+
+              Consultas(Convert.ToInt32(row.Cells[1].Value) , Convert.ToInt32(row.Cells[2].Value));
+   
+            } 
+            /* int x = 0;
+             
+           */
+            
+           
+        }
+
+        public void Consultas(int ID, int CantidadRow)
+        {
+            Conexion.Open();
+            
+            string cadena = "SELECT * FROM INVENTARIO  WHERE PRODUCTO_ID = '" + ID + "'";
+
+            SqlCommand comando = new SqlCommand(cadena, Conexion);
+            SqlDataReader sqldr;
+            
+            sqldr = comando.ExecuteReader();
+            while (sqldr.Read())
+            {
+                
+               Cantidades.Add( Convert.ToInt32(sqldr["CANTIDAD"]));
+
+                if (Convert.ToInt32(sqldr["CANTIDAD"]) < CantidadRow)
+                {
+                    MessageBox.Show("Cantidad No Disponible Del Producto Con ID : " + ID + " Cantidad En Almacen: " + sqldr["CANTIDAD"]);
+                }
+                else
+                {
+                    CantidadesD = true;
+                }
+                Puntero++;
+            }
+            Conexion.Close();
+
         }
     }
 }

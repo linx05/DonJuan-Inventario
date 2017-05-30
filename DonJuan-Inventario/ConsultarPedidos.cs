@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace DonJuan_Inventario
 {
     public partial class ConsultarPedidos : BaseForm
@@ -82,25 +83,35 @@ namespace DonJuan_Inventario
 
         private void btnCambiar_Click(object sender, EventArgs e)
         {
-            var selectedState = cmbState.SelectedValue;
-            using (var donJuan = new BD_DONJUANEntities())
+            SQLC Sql = new SQLC();
+            Sql.ConsultarCantidad(dtgProductos);
+            if (Sql.CantidadesD == true)
             {
-                if ((string)selectedState == PEDIDO.EstadosPedido["Entregado"])
+               
+            }
+            else
+            {
+                var selectedState = cmbState.SelectedValue;
+
+                using (var donJuan = new BD_DONJUANEntities())
                 {
-                    if (selectedPedido != null)
+                    if ((string)selectedState == PEDIDO.EstadosPedido["Entregado"])
                     {
-                        var productos = donJuan.PRODUCTO_MOVIMIENTO.Include("PRODUCTO").Where(x => x.PEDIDO_ID == selectedPedido.PEDIDO_ID).ToList();
-                        updateInventory(productos);
+                        if (selectedPedido != null)
+                        {
+                            var productos = donJuan.PRODUCTO_MOVIMIENTO.Include("PRODUCTO").Where(x => x.PEDIDO_ID == selectedPedido.PEDIDO_ID).ToList();
+                            updateInventory(productos);
+                        }
                     }
+                    var pedido = donJuan.PEDIDOes.Where(x => x.PEDIDO_ID == selectedPedido.PEDIDO_ID).FirstOrDefault();
+                    if (pedido != null)
+                    {
+                        pedido.ESTADO = (string)selectedState;
+                    }
+                    donJuan.SaveChanges();
+                    MessageBox.Show("Se actualizo el estado del pedido!");
+                    init();
                 }
-                var pedido = donJuan.PEDIDOes.Where(x => x.PEDIDO_ID == selectedPedido.PEDIDO_ID).FirstOrDefault();
-                if (pedido != null)
-                {
-                    pedido.ESTADO = (string)selectedState;
-                }
-                donJuan.SaveChanges();
-                MessageBox.Show("Se actualizo el estado del pedido!");
-                init();
             }
         }
 
@@ -120,5 +131,7 @@ namespace DonJuan_Inventario
         {
 
         }
+
+        
     }
 }
