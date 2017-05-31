@@ -23,7 +23,7 @@ namespace DonJuan_Inventario
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            C.BuscarProducto(txtProductoID, txtNombreProducto, txtPrecio, txtCostoProducto, cmbUnidad, txtMarcaProducto, cmbProductoB);
+            C.BuscarProducto(txtProductoID, txtNombreProducto, txtPrecio, txtCostoProducto, cmbUnidad, txtMarcaProducto, txtProductCode, cmbProductoB);
         }
 
         private void ModificarProductocs_Load(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace DonJuan_Inventario
             }
             else
             {
-                C.ModificarProducto(txtProductoID, txtNombreProducto, txtPrecio, txtCostoProducto, cmbUnidad, txtMarcaProducto);
+                C.ModificarProducto(txtProductoID, txtNombreProducto, txtPrecio, txtCostoProducto, cmbUnidad, txtMarcaProducto, txtProductCode);
                 MessageBox.Show("Se Modifico Correctamente!");
                 txtCostoProducto.Clear();
                 txtMarcaProducto.Clear();

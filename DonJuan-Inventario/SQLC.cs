@@ -11,7 +11,7 @@ namespace DonJuan_Inventario
 {
     class SQLC
     {
-        SqlConnection Conexion = new SqlConnection("data source = ithdesarrollo.database.windows.net; initial catalog = BD_DONJUAN; persist security info=True;user id = ServerAdmin; password=wF8x9!!H");
+        SqlConnection Conexion = new SqlConnection("data source = BDDONJUAN.db.13822171.hostedresource.com; initial catalog = BDDONJUAN; persist security info=True;user id = BDDONJUAN; password=DonJu@nC4le");
         //SqlConnection Conexion = new SqlConnection("Data Source= Servidor-mada; Initial Catalog=BD_DONJUAN; User Id= sa; Password= Servidor2017");
         int Proveedor_ID, Proveedor_ID1;
         int Compra_ID, Compra_ID1;
@@ -19,6 +19,7 @@ namespace DonJuan_Inventario
         int Categoria_ID, Categoria_ID1;
         public string User = "";
         public string password = "";
+        public int idpuesto = 0;
         ArrayList Cantidades = new ArrayList();
        public  bool CantidadesD = false; 
         int Puntero = 0;
@@ -109,13 +110,14 @@ namespace DonJuan_Inventario
             Conexion.Open();
             SqlDataReader sqldr;
 
-            string cadena = "SELECT NOMBRE, Contraseña FROM EMPLEADO WHERE NOMBRE = '" + Usuario.Text + "'" + "AND Contraseña ='" + Contraseña.Text + "'";
+            string cadena = "SELECT NOMBRE, Contraseña, Puesto_ID FROM EMPLEADO WHERE NOMBRE = '" + Usuario.Text + "'" + "AND Contraseña ='" + Contraseña.Text + "'";
             SqlCommand comando = new SqlCommand(cadena, Conexion);
             sqldr = comando.ExecuteReader();
             while (sqldr.Read())
             {
                 User = sqldr["NOMBRE"].ToString();
                 password = sqldr["Contraseña"].ToString();
+                idpuesto = Convert.ToInt32(sqldr["Puesto_ID"].ToString());
             }
             Conexion.Close();
         }
@@ -167,11 +169,11 @@ namespace DonJuan_Inventario
             Conexion.Close();
         }
         //Modificar Producto
-        public void BuscarProducto(TextBox IdProducto, TextBox NombreProducto, TextBox Precio, TextBox Costo, ComboBox Unidad, TextBox Marca, ComboBox ProductoB)
+        public void BuscarProducto(TextBox IdProducto, TextBox NombreProducto, TextBox Precio, TextBox Costo, ComboBox Unidad, TextBox Marca, TextBox Codigo,  ComboBox ProductoB)
         {
             Conexion.Open();
             SqlDataReader sqldr;
-            string cadena = "Select  Producto_id, Nombre, Precio, Costo, Unidad, Marca from producto where Nombre = '" + ProductoB.Text + "'";
+            string cadena = "Select  Producto_id, Nombre, Precio, Costo, Unidad, Marca, codigo from producto where Nombre = '" + ProductoB.Text + "'";
             SqlCommand comando = new SqlCommand(cadena, Conexion);
             sqldr = comando.ExecuteReader();
             while (sqldr.Read())
@@ -182,19 +184,21 @@ namespace DonJuan_Inventario
                 Costo.Text = sqldr["Costo"].ToString();
                 Unidad.Text = sqldr["Unidad"].ToString();
                 Marca.Text = sqldr["Marca"].ToString();
+                Codigo.Text = sqldr["codigo"].ToString();
             }
             Conexion.Close();
         }
-        public void ModificarProducto(TextBox IdProducto, TextBox NombreProducto, TextBox Precio, TextBox Costo, ComboBox Unidad, TextBox Marca)
+        public void ModificarProducto(TextBox IdProducto, TextBox NombreProducto, TextBox Precio, TextBox Costo, ComboBox Unidad, TextBox Marca, TextBox Codigo)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
-            String query = "UPDATE Producto SET Nombre = @Nom, Precio = @Precio, Costo = @Costo, Unidad = @Unidad, Marca = @Marca WHERE Producto_ID = @ProID";
+            String query = "UPDATE Producto SET Nombre = @Nom, Precio = @Precio, Costo = @Costo, Unidad = @Unidad, Marca = @Marca, Codigo = @Cod WHERE Producto_ID = @ProID";
             cmd.Parameters.AddWithValue("@Nom", NombreProducto.Text);
             cmd.Parameters.AddWithValue("@Precio", Precio.Text);
             cmd.Parameters.AddWithValue("@Costo", Costo.Text);
             cmd.Parameters.AddWithValue("@Unidad", Unidad.Text);
             cmd.Parameters.AddWithValue("@Marca", Marca.Text);
+            cmd.Parameters.AddWithValue("@cod", Codigo.Text);
             cmd.Parameters.AddWithValue("@ProID", IdProducto.Text);
             cmd.CommandText = query;
             cmd.Connection = Conexion;

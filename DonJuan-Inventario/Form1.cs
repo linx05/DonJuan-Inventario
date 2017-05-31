@@ -35,8 +35,8 @@ namespace DonJuan_Inventario
                 C.Validacion(txtUsuario, txtContraseña);
                 if (txtUsuario.Text == C.User && txtContraseña.Text == C.password)
                 {
-                    var MP = new MenuPrincipal(C.User);
-                    RegistrarCompra RC = new RegistrarCompra();
+                    var MP = new MenuPrincipal(C.User, C.idpuesto);
+                    
                     MP.Show();
                     this.Hide();
                 }

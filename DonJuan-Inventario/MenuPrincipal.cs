@@ -12,10 +12,13 @@ namespace DonJuan_Inventario
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal(string s)
+        int idpuesto = 0;
+
+        public MenuPrincipal(string s, int puesto)
         {            
             InitializeComponent();
             labelUsuario.Text = s;
+            idpuesto = puesto;
         }
         private void registrarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -88,7 +91,18 @@ namespace DonJuan_Inventario
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            if (idpuesto == 1001)
+            {
+                modificarProductoToolStripMenuItem.Visible = false;
+                modificarProveedoresToolStripMenuItem.Visible = false;
+            }
+            else if (idpuesto != 1002)
+            {
+                MessageBox.Show("Usted no pertenece a esta area");
+                Form1 Log = new Form1();
+                Log.Show();
+                this.Close();
+            }
         }
 
         private void modificarProductoToolStripMenuItem_Click(object sender, EventArgs e)

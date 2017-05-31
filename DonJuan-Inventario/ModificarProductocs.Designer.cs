@@ -49,6 +49,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.cmbProductoB = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -81,7 +83,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label8.Location = new System.Drawing.Point(135, 250);
+            this.label8.Location = new System.Drawing.Point(130, 289);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 20);
             this.label8.TabIndex = 84;
@@ -89,7 +91,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(222, 253);
+            this.txtPrecio.Location = new System.Drawing.Point(217, 292);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(220, 20);
             this.txtPrecio.TabIndex = 67;
@@ -101,7 +103,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(129, 380);
+            this.label9.Location = new System.Drawing.Point(124, 419);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 20);
             this.label9.TabIndex = 82;
@@ -109,7 +111,7 @@
             // 
             // txtMarcaProducto
             // 
-            this.txtMarcaProducto.Location = new System.Drawing.Point(224, 385);
+            this.txtMarcaProducto.Location = new System.Drawing.Point(219, 424);
             this.txtMarcaProducto.Name = "txtMarcaProducto";
             this.txtMarcaProducto.Size = new System.Drawing.Size(284, 20);
             this.txtMarcaProducto.TabIndex = 70;
@@ -148,7 +150,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(128, 335);
+            this.label4.Location = new System.Drawing.Point(123, 374);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 76;
@@ -160,7 +162,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(132, 293);
+            this.label3.Location = new System.Drawing.Point(127, 332);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 75;
@@ -172,7 +174,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(31, 212);
+            this.label2.Location = new System.Drawing.Point(26, 251);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 20);
             this.label2.TabIndex = 74;
@@ -193,7 +195,7 @@
             // txtProductoID
             // 
             this.txtProductoID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtProductoID.Location = new System.Drawing.Point(223, 171);
+            this.txtProductoID.Location = new System.Drawing.Point(217, 171);
             this.txtProductoID.Name = "txtProductoID";
             this.txtProductoID.ReadOnly = true;
             this.txtProductoID.Size = new System.Drawing.Size(90, 20);
@@ -201,7 +203,7 @@
             // 
             // txtNombreProducto
             // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(223, 217);
+            this.txtNombreProducto.Location = new System.Drawing.Point(218, 256);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(319, 20);
             this.txtNombreProducto.TabIndex = 66;
@@ -209,7 +211,7 @@
             // 
             // txtCostoProducto
             // 
-            this.txtCostoProducto.Location = new System.Drawing.Point(223, 298);
+            this.txtCostoProducto.Location = new System.Drawing.Point(218, 337);
             this.txtCostoProducto.Name = "txtCostoProducto";
             this.txtCostoProducto.Size = new System.Drawing.Size(69, 20);
             this.txtCostoProducto.TabIndex = 68;
@@ -249,7 +251,7 @@
             "Litros",
             "Mililitros",
             "Piezas"});
-            this.cmbUnidad.Location = new System.Drawing.Point(222, 338);
+            this.cmbUnidad.Location = new System.Drawing.Point(217, 377);
             this.cmbUnidad.Name = "cmbUnidad";
             this.cmbUnidad.Size = new System.Drawing.Size(121, 21);
             this.cmbUnidad.TabIndex = 69;
@@ -290,12 +292,33 @@
             this.label10.TabIndex = 92;
             this.label10.Text = "Producto:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label5.Location = new System.Drawing.Point(26, 212);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 20);
+            this.label5.TabIndex = 94;
+            this.label5.Text = "Codigo de Producto:";
+            // 
+            // txtProductCode
+            // 
+            this.txtProductCode.Location = new System.Drawing.Point(217, 212);
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.Size = new System.Drawing.Size(319, 20);
+            this.txtProductCode.TabIndex = 93;
+            // 
             // ModificarProductocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DonJuan_Inventario.Properties.Resources.Fondo_lineas;
             this.ClientSize = new System.Drawing.Size(774, 587);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtProductCode);
             this.Controls.Add(this.cmbProductoB);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnEliminar);
@@ -354,5 +377,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ComboBox cmbProductoB;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtProductCode;
     }
 }

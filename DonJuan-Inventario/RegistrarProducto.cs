@@ -26,7 +26,7 @@ namespace DonJuan_Inventario
 
         private void RegistrarProducto_Load(object sender, EventArgs e)
         {
-            //con.idproducto(txtProductoID);
+            con.idproducto(txtProductoID);
             ListarCategoria();
             ListarProveedores();
             cmbUnidad.Text = "Kilogramos";
